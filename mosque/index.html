@@ -206,8 +206,13 @@ p{margin:0 0 1em;}
 .tr-note .wrap{display:flex;gap:.6em;align-items:flex-start;}
 
 /* ---------- prayer strip ---------- */
+/* the wrapper keeps its height locked by JS, so pinning the strip as a fixed
+   overlay never changes the page height - no scroll-anchoring bounce */
+html{overflow-anchor:none;}
+.strip-wrap{position:relative;}
+.strip.pinned{position:fixed;top:0;left:0;right:0;}
 .strip{
-  position:sticky;top:0;z-index:60;
+  position:relative;z-index:60;
   background:linear-gradient(160deg,#123262 0%,#1d4e8f 52%,#164478 100%);
   color:#fff;
   border-top:3px solid var(--turq);
@@ -583,6 +588,7 @@ section{scroll-margin-top:150px;}
   </div>
 
   <!-- ================= STICKY PRAYER STRIP ================= -->
+  <div class="strip-wrap" id="stripWrap">
   <div class="strip" id="strip">
     <svg class="strip-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starLight)"></rect></svg>
     <div class="wrap strip-inner">
@@ -712,6 +718,7 @@ section{scroll-margin-top:150px;}
         <p><strong>Turkish, live.</strong> Press TR. The menu, the prayer strip, the Diyanet prayer names and this headline switch. The site is English only today despite a Turkish khutbah and a Turkish-speaking congregation. No Australian mosque website exists in Turkish.</p>
       </aside>
     </div>
+  </div>
   </section>
 
   <!-- ================= VISIT ================= -->
@@ -1325,6 +1332,7 @@ section{scroll-margin-top:150px;}
       annBtn.setAttribute('aria-pressed','true');
       annTxt.textContent = 'Explainers: ON';
     }
+    lockWrapHeight();
   });
 
   /* ---------- language toggle ---------- */
@@ -1349,6 +1357,7 @@ section{scroll-margin-top:150px;}
     trBtn.setAttribute('aria-pressed', lang === 'tr' ? 'true' : 'false');
     if(lang === 'tr'){ trNote.removeAttribute('hidden'); } else { trNote.setAttribute('hidden',''); }
     tick();
+    lockWrapHeight();
   }
   enBtn.addEventListener('click', function(){ setLang('en'); });
   trBtn.addEventListener('click', function(){ setLang('tr'); });
@@ -1404,27 +1413,37 @@ section{scroll-margin-top:150px;}
   tick();
   setInterval(tick, 1000);
 
-  /* ---------- strip compresses once pinned ---------- */
+  /* ---------- strip becomes a fixed compact bar once scrolled past ----------
+     The wrapper's height is locked to the expanded strip, so pinning never
+     changes the document height. That matters: a height change up here feeds
+     the browser's scroll anchoring, which shoves the scroll position back and
+     makes the page "bounce" at the top. */
   var strip = document.getElementById('strip');
-  var stripTop = strip.offsetTop;
-  /* hysteresis: pin well past the strip, unpin only near the top, so the
-     height change cannot fight the scroll position and judder */
+  var stripWrap = document.getElementById('stripWrap');
+  function lockWrapHeight(){
+    var wasPinned = strip.classList.contains('pinned');
+    strip.classList.remove('pinned');
+    stripWrap.style.height = '';
+    stripWrap.style.height = strip.offsetHeight + 'px';
+    if(wasPinned){ strip.classList.add('pinned'); }
+  }
+  lockWrapHeight();
   var scrollQueued = false;
   function onScroll(){
     if(scrollQueued){ return; }
     scrollQueued = true;
     requestAnimationFrame(function(){
       scrollQueued = false;
-      var y = window.pageYOffset;
+      var top = stripWrap.getBoundingClientRect().top;
       if(!strip.classList.contains('pinned')){
-        if(y > stripTop + 220){ strip.classList.add('pinned'); }
+        if(top < -120){ strip.classList.add('pinned'); }
       } else {
-        if(y < stripTop + 40){ strip.classList.remove('pinned'); }
+        if(top > -40){ strip.classList.remove('pinned'); }
       }
     });
   }
   window.addEventListener('scroll', onScroll, { passive:true });
-  window.addEventListener('resize', function(){ stripTop = strip.offsetTop; });
+  window.addEventListener('resize', function(){ lockWrapHeight(); });
   onScroll();
 
   /* ---------- donation fund selector ---------- */
