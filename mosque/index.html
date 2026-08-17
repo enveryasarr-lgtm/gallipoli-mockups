@@ -1,0 +1,1523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Auburn Gallipoli Mosque Concept</title>
+</head>
+<body>
+<svg class="svgdefs" aria-hidden="true" focusable="false" width="0" height="0">
+  <defs>
+    <pattern id="starLight" width="64" height="64" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1.1">
+        <rect x="14" y="14" width="36" height="36"></rect>
+        <polygon points="32,6 58,32 32,58 6,32"></polygon>
+        <circle cx="32" cy="32" r="3.6"></circle>
+      </g>
+    </pattern>
+    <pattern id="starInk" width="64" height="64" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#1d4e8f" stroke-opacity="0.13" stroke-width="1.1">
+        <rect x="14" y="14" width="36" height="36"></rect>
+        <polygon points="32,6 58,32 32,58 6,32"></polygon>
+        <circle cx="32" cy="32" r="3.6"></circle>
+      </g>
+    </pattern>
+    <pattern id="starTurq" width="48" height="48" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#2a9d8f" stroke-opacity="0.30" stroke-width="1">
+        <rect x="11" y="11" width="26" height="26"></rect>
+        <polygon points="24,5 43,24 24,43 5,24"></polygon>
+      </g>
+    </pattern>
+    <pattern id="starPhoto" width="88" height="88" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#ffffff" stroke-opacity="0.26" stroke-width="1.4">
+        <rect x="19" y="19" width="50" height="50"></rect>
+        <polygon points="44,8 80,44 44,80 8,44"></polygon>
+        <circle cx="44" cy="44" r="6"></circle>
+      </g>
+    </pattern>
+  </defs>
+</svg>
+
+<style>
+:root{
+  color-scheme: light;
+  --ground:#fbf7f0;
+  --paper:#ffffff;
+  --paper-warm:#f6f1e7;
+  --ink:#152a41;
+  --ink-soft:#3f5670;
+  --muted:#66788c;
+  --cobalt:#1d4e8f;
+  --cobalt-deep:#123262;
+  --cobalt-night:#0c2244;
+  --turq:#2a9d8f;
+  --turq-deep:#1c7a70;
+  --turq-pale:#e4f2ef;
+  --tulip:#c23b2c;
+  --tulip-pale:#fbeae7;
+  --line:#e4dbcb;
+  --line-soft:#efe8db;
+  --note-bg:#fdf4dd;
+  --note-line:#e0bd72;
+  --note-ink:#5b4413;
+  --display:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua","Times New Roman",Georgia,serif;
+  --body:"Segoe UI Variable Text","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(18,50,98,.06), 0 10px 28px rgba(18,50,98,.07);
+}
+html,body{background:#fbf7f0;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+.mockup *,.mockup *::before,.mockup *::after{box-sizing:border-box;}
+.mockup{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;
+  line-height:1.55;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+.mockup img{max-width:100%;}
+.svgdefs{position:absolute;width:0;height:0;overflow:hidden;}
+.mockup a{color:var(--cobalt);text-decoration:none;}
+.mockup a:hover{text-decoration:underline;}
+.mockup :focus-visible{outline:3px solid var(--turq);outline-offset:2px;border-radius:4px;}
+.wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+
+h1,h2,h3,h4{font-family:var(--display);font-weight:600;line-height:1.15;margin:0 0 .5em;letter-spacing:-.01em;}
+h2{font-size:clamp(1.6rem,3.2vw,2.35rem);}
+h3{font-size:1.18rem;}
+p{margin:0 0 1em;}
+.eyebrow{
+  font-family:var(--body);font-size:.72rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--turq-deep);margin:0 0 .7em;display:block;
+}
+.lede{font-size:1.06rem;color:var(--ink-soft);max-width:62ch;}
+.tnum{font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.5em;justify-content:center;
+  font-family:var(--body);font-size:.95rem;font-weight:600;line-height:1;
+  padding:.85em 1.3em;border-radius:999px;border:1.5px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .15s ease,background .15s ease,color .15s ease;
+}
+/* These carry the .mockup prefix on purpose. A button is often an <a>, and the
+   base rule ".mockup a" is more specific than a bare ".btn-primary", so without
+   the prefix a filled button renders cobalt text on a cobalt background and the
+   label vanishes. Keep the prefix on every rule that sets a button's colour. */
+.mockup .btn:hover{text-decoration:none;transform:translateY(-1px);}
+.mockup .btn-primary{background:var(--cobalt);color:#fff;}
+.mockup .btn-primary:hover{background:var(--cobalt-deep);color:#fff;}
+.mockup .btn-tulip{background:var(--tulip);color:#fff;}
+.mockup .btn-tulip:hover{background:#a72f22;color:#fff;}
+.mockup .btn-ghost{background:transparent;color:var(--cobalt);border-color:#c9d6e6;}
+.mockup .btn-ghost:hover{background:#eef3fa;color:var(--cobalt-deep);}
+.mockup .btn-onblue{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.45);}
+.mockup .btn-onblue:hover{background:#fff;color:var(--cobalt-deep);}
+.btn-sm{font-size:.85rem;padding:.65em 1.05em;}
+
+/* ---------- explainer toggle ---------- */
+.ann-toggle{
+  position:fixed;top:12px;right:14px;z-index:400;
+  font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;cursor:pointer;
+  background:var(--note-bg);color:var(--note-ink);
+  border:1.5px solid var(--note-line);border-radius:999px;
+  padding:.6em 1.05em;box-shadow:0 6px 18px rgba(18,50,98,.18);
+  display:inline-flex;align-items:center;gap:.5em;
+}
+.ann-toggle .dot{width:.6em;height:.6em;border-radius:50%;background:var(--tulip);display:inline-block;}
+.mockup.ann-off .ann-toggle .dot{background:#b9ae95;}
+.mockup.ann-off .annote{display:none;}
+
+/* ---------- annotation cards ---------- */
+.annote{
+  position:relative;
+  background:var(--note-bg);
+  background-image:repeating-linear-gradient(180deg,rgba(224,189,114,.16) 0 1px,transparent 1px 26px);
+  border:1.5px dashed var(--note-line);
+  border-left:5px solid var(--note-line);
+  border-radius:8px;
+  color:var(--note-ink);
+  padding:1.1em 1.2em 1.1em 1.35em;
+  margin:1.4em 0 0;
+  max-width:70ch;
+  box-shadow:0 8px 18px rgba(91,68,19,.09);
+  font-size:.9rem;line-height:1.5;
+}
+.annote p{margin:0;}
+.annote strong{color:#3f2e07;}
+.annote-pin{
+  position:absolute;top:-13px;left:-13px;
+  width:30px;height:30px;border-radius:50%;
+  background:var(--tulip);color:#fff;
+  font-family:var(--body);font-size:.85rem;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 3px 8px rgba(0,0,0,.22);
+}
+.annote--onblue{background:var(--note-bg);}
+.annote--tight{margin-top:1.1em;}
+
+/* ---------- header ---------- */
+.site-head{
+  background:var(--paper);
+  border-bottom:1px solid var(--line);
+  position:relative;z-index:70;
+}
+.head-inner{
+  display:flex;align-items:center;gap:18px;
+  padding-top:14px;padding-bottom:14px;flex-wrap:wrap;
+}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);flex:0 0 auto;}
+.brand:hover{text-decoration:none;}
+.brand-mark{width:44px;height:44px;flex:0 0 auto;}
+.brand-name{font-family:var(--display);font-size:1.16rem;font-weight:600;line-height:1.1;display:block;}
+.brand-sub{font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--turq-deep);font-weight:700;}
+.head-right{margin-left:auto;display:flex;align-items:center;gap:10px;}
+.nav{
+  display:flex;align-items:center;gap:2px;flex-wrap:wrap;
+}
+.nav a{
+  font-size:.9rem;font-weight:600;color:var(--ink);padding:.5em .7em;border-radius:8px;white-space:nowrap;
+}
+.nav a:hover{background:#eef3fa;color:var(--cobalt-deep);text-decoration:none;}
+.lang{display:inline-flex;border:1.5px solid #c9d6e6;border-radius:999px;overflow:hidden;background:#fff;}
+.lang button{
+  font-family:var(--body);font-size:.78rem;font-weight:700;letter-spacing:.07em;
+  padding:.5em .85em;border:0;background:transparent;color:var(--cobalt);cursor:pointer;
+}
+.lang button[aria-pressed="true"]{background:var(--cobalt);color:#fff;}
+.navrow{width:100%;}
+@media (max-width:1099px){
+  .nav{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:4px;flex-wrap:nowrap;}
+  .head-right{margin-left:auto;}
+}
+
+/* ---------- Turkish notice ---------- */
+.tr-note{
+  background:var(--turq-pale);border-bottom:1px solid #bfded8;color:#14554e;
+  font-size:.86rem;padding:.7em 0;
+}
+.tr-note[hidden]{display:none;}
+.tr-note .wrap{display:flex;gap:.6em;align-items:flex-start;}
+
+/* ---------- prayer strip ---------- */
+.strip{
+  position:sticky;top:0;z-index:60;
+  background:linear-gradient(160deg,#123262 0%,#1d4e8f 52%,#164478 100%);
+  color:#fff;
+  border-top:3px solid var(--turq);
+  box-shadow:0 8px 22px rgba(12,34,68,.24);
+}
+.strip-motif{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;}
+.strip-inner{position:relative;padding-top:14px;padding-bottom:14px;}
+@media (min-width:1000px){ .strip-inner{padding-right:180px;} }
+.strip-top{
+  display:flex;align-items:baseline;gap:14px 22px;flex-wrap:wrap;
+  padding-bottom:10px;margin-bottom:10px;
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.strip-label{
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:#9fd8d0;
+}
+.strip-date{font-family:var(--display);font-size:1.02rem;font-weight:600;}
+.strip-hijri{font-size:.85rem;color:#c3d8f2;}
+.strip-src{font-size:.72rem;color:#a9c4e6;margin-left:auto;}
+.next-chip{
+  display:inline-flex;align-items:center;gap:.55em;
+  background:rgba(42,157,143,.24);border:1px solid rgba(159,216,208,.55);
+  border-radius:999px;padding:.32em .85em;font-size:.82rem;font-weight:600;
+}
+.next-chip .pulse{width:.5em;height:.5em;border-radius:50%;background:#7fe3d6;box-shadow:0 0 0 0 rgba(127,227,214,.7);animation:pulse 2.4s infinite;}
+@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(127,227,214,0);}100%{box-shadow:0 0 0 0 rgba(127,227,214,0);}}
+.times-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px 2px;}
+.times{display:grid;grid-template-columns:repeat(6,minmax(112px,1fr));gap:1px;background:rgba(255,255,255,.16);border-radius:10px;overflow:hidden;min-width:672px;}
+.cell{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));padding:.7em .8em .75em;position:relative;}
+.cell.is-next{background:linear-gradient(180deg,rgba(42,157,143,.42),rgba(42,157,143,.24));}
+.cell.is-next::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:#7fe3d6;}
+.cell-name{display:block;font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#9fd8d0;margin-bottom:.15em;}
+.cell.is-next .cell-name{color:#dffaf5;}
+.cell-begins{display:block;font-family:var(--display);font-size:1.62rem;font-weight:600;line-height:1.05;font-variant-numeric:tabular-nums;}
+.cell-iq{display:flex;align-items:center;gap:.4em;font-size:.8rem;color:#cfe1f6;font-variant-numeric:tabular-nums;margin-top:.15em;}
+.cell-iq b{color:#fff;font-weight:600;}
+.cell-iq .tick{width:.42em;height:.42em;border-radius:50%;background:#7fe3d6;flex:0 0 auto;}
+.cell-none{font-size:.8rem;color:#a9c4e6;margin-top:.15em;display:block;}
+.times-key{display:flex;gap:1.2em;flex-wrap:wrap;font-size:.72rem;color:#b9d0ec;margin-top:.55em;}
+.times-key span b{color:#fff;}
+
+.jummah{
+  display:flex;gap:10px;flex-wrap:wrap;align-items:stretch;margin-top:12px;
+}
+.jum-head{
+  display:flex;flex-direction:column;justify-content:center;padding:.55em .95em;
+  border-left:3px solid var(--tulip);background:rgba(194,59,44,.16);border-radius:0 8px 8px 0;
+}
+.jum-head .t{font-family:var(--display);font-size:1.02rem;font-weight:600;}
+.jum-head .d{font-size:.74rem;color:#e8c3bd;}
+.jum{
+  flex:1 1 260px;display:flex;align-items:center;gap:.9em;flex-wrap:wrap;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  border-radius:8px;padding:.55em .85em;
+}
+.jum-tag{font-size:max(11px,.68rem);font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9fd8d0;}
+.jum-slot{display:flex;flex-direction:column;line-height:1.15;}
+.jum-slot span{font-size:max(11px,.68rem);letter-spacing:.08em;text-transform:uppercase;color:#b9d0ec;}
+.jum-slot b{font-size:.98rem;font-weight:600;font-variant-numeric:tabular-nums;}
+.strip .annote{margin:14px 0 2px;}
+
+.strip.pinned .strip-top{padding-bottom:8px;margin-bottom:8px;}
+.strip.pinned .strip-hijri,.strip.pinned .strip-src,.strip.pinned .times-key,.strip.pinned .jummah,.strip.pinned .annote{display:none;}
+.strip.pinned .cell{padding:.5em .8em .55em;}
+.strip.pinned .cell-begins{font-size:1.3rem;}
+
+/* ---------- sections ---------- */
+section{scroll-margin-top:150px;}
+.band{padding:64px 0;}
+.band--paper{background:var(--paper);}
+.band--warm{background:var(--paper-warm);}
+.band--ground{background:var(--ground);}
+.band--ink{background:var(--cobalt-night);color:#eaf1fb;position:relative;overflow:hidden;}
+.band--ink h2,.band--ink h3{color:#fff;}
+.band--ink .eyebrow{color:#7fe3d6;}
+.band--ink .lede{color:#c3d8f2;}
+.band-motif{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.9;}
+.band > .wrap{position:relative;}
+.rule{height:1px;background:var(--line);border:0;margin:0;}
+.section-head{max-width:70ch;margin-bottom:32px;}
+
+/* ---------- hero ---------- */
+.hero{background:var(--paper);padding:56px 0 64px;position:relative;overflow:hidden;}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:32px;align-items:center;}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.05fr .95fr;gap:48px;}}
+.hero h1{font-size:clamp(2.3rem,5.6vw,3.6rem);margin-bottom:.35em;}
+.hero .lede{font-size:1.1rem;}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px;}
+.hero-facts{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px;padding-top:22px;border-top:1px solid var(--line);}
+.fact b{display:block;font-family:var(--display);font-size:1.75rem;font-weight:600;color:var(--cobalt);line-height:1.05;font-variant-numeric:tabular-nums;}
+.fact span{font-size:.82rem;color:var(--muted);}
+
+/* ---------- photo placeholders ---------- */
+.photo{
+  position:relative;border-radius:var(--radius);overflow:hidden;
+  min-height:230px;display:flex;align-items:flex-end;
+  border:1px solid rgba(18,50,98,.12);box-shadow:var(--shadow);
+}
+.photo-motif{position:absolute;inset:0;width:100%;height:100%;}
+.photo-tag{
+  position:relative;margin:12px;padding:.5em .8em;border-radius:8px;
+  background:rgba(12,34,68,.78);color:#fff;font-size:.74rem;font-weight:600;
+  letter-spacing:.03em;line-height:1.35;backdrop-filter:blur(2px);
+}
+.ph-dusk{background:linear-gradient(150deg,#0c2244 0%,#1d4e8f 55%,#2a9d8f 130%);}
+.ph-tile{background:linear-gradient(140deg,#1d4e8f 0%,#2a9d8f 100%);}
+.ph-tour{background:linear-gradient(140deg,#164478 0%,#2a9d8f 90%);}
+.ph-story{background:linear-gradient(140deg,#123262 0%,#c23b2c 165%);}
+.ph-school{background:linear-gradient(140deg,#1c7a70 0%,#1d4e8f 100%);}
+.photo--hero{min-height:340px;}
+.photo--tall{min-height:300px;}
+
+/* ---------- cards ---------- */
+.grid{display:grid;gap:20px;}
+.g2{grid-template-columns:1fr;}
+.g3{grid-template-columns:1fr;}
+.g4{grid-template-columns:1fr;}
+@media (min-width:700px){.g2{grid-template-columns:1fr 1fr;}.g3{grid-template-columns:1fr 1fr;}.g4{grid-template-columns:1fr 1fr;}}
+@media (min-width:1000px){.g3{grid-template-columns:repeat(3,1fr);}.g4{grid-template-columns:repeat(4,1fr);}}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:22px 22px 24px;box-shadow:var(--shadow);position:relative;
+}
+.card h3{margin-bottom:.35em;}
+.card p{font-size:.92rem;color:var(--ink-soft);}
+.card p:last-child{margin-bottom:0;}
+.card-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.icon{width:36px;height:36px;flex:0 0 auto;}
+.tag{
+  display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  padding:.34em .7em;border-radius:999px;
+}
+.tag-turq{background:var(--turq-pale);color:var(--turq-deep);}
+.tag-cobalt{background:#e9f0f9;color:var(--cobalt-deep);}
+.tag-tulip{background:var(--tulip-pale);color:var(--tulip);}
+.tag-note{background:var(--note-bg);color:var(--note-ink);}
+.meta-list{list-style:none;margin:0;padding:0;font-size:.9rem;}
+.meta-list li{display:flex;gap:.7em;padding:.5em 0;border-bottom:1px solid var(--line-soft);}
+.meta-list li:last-child{border-bottom:0;}
+.meta-list li b{flex:0 0 42%;color:var(--ink);font-weight:600;}
+.meta-list li span{color:var(--ink-soft);}
+.checks{list-style:none;margin:0;padding:0;font-size:.92rem;color:var(--ink-soft);}
+.checks li{position:relative;padding:.32em 0 .32em 1.7em;}
+.checks li::before{
+  content:"";position:absolute;left:0;top:.85em;width:.55em;height:.55em;
+  background:var(--turq);transform:rotate(45deg);border-radius:1px;
+}
+.pricebox{
+  display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;
+}
+.price{
+  flex:1 1 160px;border:1px solid var(--line);border-radius:10px;padding:.8em .9em;background:var(--paper-warm);
+}
+.price span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+.price b{font-family:var(--display);font-size:1.35rem;font-weight:600;color:var(--cobalt);font-variant-numeric:tabular-nums;}
+.price em{display:block;font-style:normal;font-size:.8rem;color:var(--ink-soft);}
+
+/* ---------- visit list ---------- */
+.visit-grid{display:grid;gap:18px;grid-template-columns:1fr;}
+@media (min-width:760px){.visit-grid{grid-template-columns:1fr 1fr;}}
+@media (min-width:1060px){.visit-grid{grid-template-columns:repeat(3,1fr);}}
+.visit-item{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:20px;}
+.visit-item h3{font-size:1.04rem;}
+.visit-item p{font-size:.9rem;color:var(--ink-soft);margin:0;}
+
+/* ---------- events ---------- */
+.event{display:flex;gap:16px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+.event-date{
+  flex:0 0 auto;width:74px;text-align:center;border-radius:10px;overflow:hidden;border:1px solid var(--line);
+}
+.event-date .m{display:block;background:var(--cobalt);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:.28em 0;}
+.event-date .d{display:block;font-family:var(--display);font-size:1.5rem;font-weight:600;padding:.16em 0 .24em;background:var(--paper-warm);font-variant-numeric:tabular-nums;}
+.event h3{font-size:1.04rem;margin-bottom:.25em;}
+.event p{font-size:.88rem;color:var(--ink-soft);margin:0 0 .5em;}
+
+/* ---------- donate ---------- */
+.donate-grid{display:grid;gap:24px;grid-template-columns:1fr;}
+@media (min-width:920px){.donate-grid{grid-template-columns:1.08fr .92fr;}}
+.funds{display:grid;gap:10px;grid-template-columns:1fr;}
+@media (min-width:520px){.funds{grid-template-columns:1fr 1fr;}}
+.fund{
+  text-align:left;font-family:var(--body);cursor:pointer;
+  background:var(--paper);border:1.5px solid var(--line);border-radius:12px;
+  padding:.85em 1em;display:flex;flex-direction:column;gap:.15em;transition:border-color .15s ease,background .15s ease;
+}
+.fund:hover{border-color:var(--turq);}
+.fund b{font-size:.98rem;font-weight:600;color:var(--ink);}
+.fund span{font-size:.78rem;color:var(--muted);}
+.fund[aria-pressed="true"]{border-color:var(--cobalt);background:#eef3fa;box-shadow:inset 0 0 0 1px var(--cobalt);}
+.amounts{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;}
+.amt{
+  font-family:var(--body);font-size:.92rem;font-weight:600;cursor:pointer;
+  background:var(--paper);border:1.5px solid var(--line);border-radius:999px;padding:.55em 1.05em;color:var(--ink);
+  font-variant-numeric:tabular-nums;
+}
+.amt[aria-pressed="true"]{background:var(--cobalt);border-color:var(--cobalt);color:#fff;}
+.freq{display:inline-flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;background:var(--paper);margin-top:16px;}
+.freq button{font-family:var(--body);font-size:.85rem;font-weight:600;padding:.55em 1.1em;border:0;background:transparent;color:var(--ink);cursor:pointer;}
+.freq button[aria-pressed="true"]{background:var(--turq);color:#fff;}
+.receipt{
+  background:var(--paper);border:1px solid var(--line);border-radius:12px;
+  box-shadow:var(--shadow);overflow:hidden;position:relative;
+}
+.receipt-top{
+  background:var(--paper-warm);border-bottom:1px dashed var(--line);
+  padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;
+}
+.receipt-top b{font-family:var(--display);font-size:1.02rem;}
+.receipt-body{padding:20px;}
+.receipt-body dl{margin:0 0 16px;font-size:.9rem;}
+.receipt-body dl div{display:flex;justify-content:space-between;gap:1em;padding:.42em 0;border-bottom:1px solid var(--line-soft);}
+.receipt-body dt{color:var(--muted);}
+.receipt-body dd{margin:0;font-weight:600;text-align:right;font-variant-numeric:tabular-nums;}
+.ded{
+  border-radius:10px;padding:14px 16px;font-size:.9rem;line-height:1.5;
+}
+.ded.yes{background:var(--turq-pale);border:1px solid #a9d9d1;color:#12554d;}
+.ded.no{background:var(--note-bg);border:1px solid var(--note-line);color:var(--note-ink);}
+.ded b{display:block;margin-bottom:.3em;font-size:.95rem;}
+.abnline{font-size:.8rem;color:var(--muted);margin-top:14px;}
+
+/* ---------- turkish demo ---------- */
+.tr-table{width:100%;border-collapse:collapse;font-size:.92rem;background:var(--paper);}
+.tr-wrapscroll{overflow-x:auto;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);}
+.tr-table th,.tr-table td{padding:.7em 1em;text-align:left;border-bottom:1px solid var(--line-soft);white-space:nowrap;}
+.tr-table th{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--paper-warm);}
+.tr-table tr:last-child td{border-bottom:0;}
+.tr-table td:first-child{font-weight:600;}
+.tr-table td.turk{color:var(--cobalt);font-weight:600;}
+
+/* ---------- browser vignettes ---------- */
+.browser{
+  background:var(--paper);border:1px solid #cfd8e4;border-radius:12px;overflow:hidden;
+  box-shadow:0 2px 4px rgba(18,50,98,.08),0 18px 40px rgba(18,50,98,.13);
+}
+.browser-bar{
+  display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:#eef1f6;border-bottom:1px solid #d8dfe9;
+}
+.dots{display:flex;gap:5px;}
+.dots i{width:10px;height:10px;border-radius:50%;background:#c8d0dc;display:block;}
+.urlbar{
+  flex:1;background:#fff;border:1px solid #d8dfe9;border-radius:999px;
+  padding:.32em .9em;font-size:.78rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.browser-body{padding:24px;}
+.browser-body h3{font-family:var(--display);font-size:1.4rem;}
+.mini-table{width:100%;border-collapse:collapse;font-size:.88rem;font-variant-numeric:tabular-nums;}
+.mini-table th,.mini-table td{padding:.55em .7em;text-align:left;border-bottom:1px solid var(--line-soft);}
+.mini-table th{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--paper-warm);}
+.mini-table td:first-child{font-weight:600;}
+.mini-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:10px;}
+.admin{
+  margin-top:18px;background:#f4f7fb;border:1px solid #d8e2ee;border-radius:10px;padding:16px;
+}
+.admin .adm-h{font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px;}
+.admin-row{display:flex;gap:.8em;flex-wrap:wrap;font-size:.86rem;padding:.35em 0;}
+.admin-row b{color:var(--ink);}
+.warnbar{
+  margin-top:12px;background:var(--note-bg);border:1px solid var(--note-line);border-radius:8px;
+  padding:.7em .9em;font-size:.84rem;color:var(--note-ink);display:flex;gap:.6em;align-items:flex-start;
+}
+.warnbar .wi{flex:0 0 auto;font-weight:700;}
+.dl-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;}
+.dl-list li{
+  display:flex;align-items:center;gap:.7em;font-size:.86rem;
+  border:1px solid var(--line);border-radius:8px;padding:.55em .8em;background:var(--paper-warm);
+}
+.dl-list .ext{font-size:.64rem;font-weight:700;letter-spacing:.08em;background:var(--cobalt);color:#fff;border-radius:4px;padding:.24em .45em;}
+
+/* ---------- footer ---------- */
+.foot{background:var(--cobalt-night);color:#c3d8f2;padding:56px 0 28px;position:relative;overflow:hidden;}
+.foot .wrap{position:relative;}
+.foot h4{font-family:var(--body);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:#7fe3d6;margin:0 0 .9em;}
+.foot a{color:#eaf1fb;}
+.foot-grid{display:grid;gap:28px;grid-template-columns:1fr;}
+@media (min-width:760px){.foot-grid{grid-template-columns:1.3fr 1fr 1fr;}}
+@media (min-width:1060px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr 1fr;}}
+.foot ul{list-style:none;margin:0;padding:0;font-size:.9rem;}
+.foot li{padding:.24em 0;}
+.foot-name{font-family:var(--display);font-size:1.2rem;color:#fff;margin:0 0 .3em;}
+.foot-bottom{
+  margin-top:34px;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);
+  display:flex;gap:14px;flex-wrap:wrap;justify-content:space-between;font-size:.8rem;color:#9fb6d4;
+}
+.socials{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.socials a{
+  display:inline-flex;align-items:center;gap:.4em;font-size:.8rem;font-weight:600;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:999px;padding:.4em .85em;
+}
+.socials a:hover{background:#fff;color:var(--cobalt-deep);text-decoration:none;}
+.stars{color:#f0c150;letter-spacing:.06em;}
+
+/* ---------- toast ---------- */
+.toast{
+  position:fixed;left:50%;bottom:22px;transform:translate(-50%,14px);
+  background:var(--cobalt-night);color:#fff;font-size:.86rem;font-weight:600;
+  padding:.75em 1.15em;border-radius:999px;box-shadow:0 12px 30px rgba(12,34,68,.35);
+  opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease;z-index:500;max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translate(-50%,0);}
+
+@media (max-width:999px){
+  .ann-toggle{top:auto;bottom:14px;right:12px;font-size:.72rem;padding:.55em .9em;}
+  .toast{bottom:70px;}
+}
+/* narrow screens: keep the hero stats and the Jummah block tidy and legible */
+@media (max-width:680px){
+  .hero-facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 20px;}
+  .fact b{font-size:1.5rem;}
+  .fact span{display:block;line-height:1.3;}
+  .jummah{flex-direction:column;gap:8px;}
+  .jum-head{border-radius:8px;flex-direction:row;align-items:baseline;gap:.6em;flex-wrap:wrap;}
+  .jum{flex:1 1 auto;width:100%;gap:.7em 1.1em;}
+  .jum-slot b{font-size:1.02rem;}
+}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .mockup *,.mockup *::before,.mockup *::after{animation:none !important;transition:none !important;}
+  .btn:hover{transform:none;}
+}
+</style>
+
+<div class="mockup" id="mockup">
+
+  <button class="ann-toggle" id="annToggle" type="button" aria-pressed="true">
+    <span class="dot" aria-hidden="true"></span><span id="annToggleText">Explainers: ON</span>
+  </button>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <rect x="1" y="1" width="62" height="62" rx="12" fill="#123262"></rect>
+          <g fill="none" stroke="#2a9d8f" stroke-width="2.2">
+            <rect x="17" y="17" width="30" height="30"></rect>
+            <polygon points="32,11 53,32 32,53 11,32"></polygon>
+          </g>
+          <circle cx="32" cy="32" r="5.5" fill="#c23b2c"></circle>
+        </svg>
+        <span>
+          <span class="brand-name">Auburn Gallipoli Mosque</span>
+          <span class="brand-sub">Auburn Gelibolu Camii</span>
+        </span>
+      </a>
+      <div class="head-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" id="langEn" aria-pressed="true">EN</button>
+          <button type="button" id="langTr" aria-pressed="false">TR</button>
+        </div>
+        <a class="btn btn-tulip btn-sm" href="#donate" data-en="Donate" data-tr="Ba&#287;&#305;&#351; yap">Donate</a>
+      </div>
+      <nav class="nav navrow" aria-label="Main">
+        <a href="#prayer" data-en="Prayer Times" data-tr="Namaz Vakitleri">Prayer Times</a>
+        <a href="#visit" data-en="Visit" data-tr="Ziyaret">Visit</a>
+        <a href="#services" data-en="Services" data-tr="Hizmetler">Services</a>
+        <a href="#learn" data-en="Learn" data-tr="E&#287;itim">Learn</a>
+        <a href="#community" data-en="Community" data-tr="Cemaat">Community</a>
+        <a href="#whatson" data-en="What&#8217;s On" data-tr="Etkinlikler">What&#8217;s On</a>
+        <a href="#donate" data-en="Donate" data-tr="Ba&#287;&#305;&#351;">Donate</a>
+        <a href="#about" data-en="About" data-tr="Hakk&#305;m&#305;zda">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="tr-note" id="trNote" hidden>
+    <div class="wrap">
+      <span aria-hidden="true">&#9432;</span>
+      <span>Bu sayfada T&#252;rk&#231;e &#231;eviri devam ediyor. Namaz vakitleri, men&#252; ve ba&#287;&#305;&#351; b&#246;l&#252;m&#252; T&#252;rk&#231;e; hen&#252;z &#231;evrilmemi&#351; b&#246;l&#252;mler &#304;ngilizce g&#246;r&#252;n&#252;r.</span>
+    </div>
+  </div>
+
+  <!-- ================= STICKY PRAYER STRIP ================= -->
+  <div class="strip" id="strip">
+    <svg class="strip-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starLight)"></rect></svg>
+    <div class="wrap strip-inner">
+
+      <div class="strip-top">
+        <span class="strip-label" data-en="Today at the mosque" data-tr="Bug&#252;n camimizde">Today at the mosque</span>
+        <span class="strip-date tnum" data-en="Saturday 15 August 2026" data-tr="15 A&#287;ustos 2026 Cumartesi">Saturday 15 August 2026</span>
+        <span class="strip-hijri tnum" data-en="2 Rabi al-Awwal 1448" data-tr="2 Rebi&#252;levvel 1448">2 Rabi al-Awwal 1448</span>
+        <span class="next-chip">
+          <span class="pulse" aria-hidden="true"></span>
+          <span data-en="Next" data-tr="S&#305;radaki">Next</span>
+          <b id="nextName">-</b>
+          <span class="tnum" id="nextCount">&#183;</span>
+        </span>
+        <span class="strip-src" data-en="Our own timetable &#183; Diyanet method &#183; Auburn NSW" data-tr="Kendi vakit cetvelimiz &#183; Diyanet hesab&#305; &#183; Auburn NSW">Our own timetable &#183; Diyanet method &#183; Auburn NSW</span>
+      </div>
+
+      <div class="times-scroll">
+        <div class="times" id="times" role="table" aria-label="Today's prayer times">
+          <div class="cell" data-begins="05:11">
+            <span class="cell-name" data-en="Fajr" data-tr="&#304;msak">Fajr</span>
+            <b class="cell-begins">05:11</b>
+            <span class="cell-iq"><i class="tick" aria-hidden="true"></i><span data-en="Iqamah" data-tr="Cemaat">Iqamah</span> <b>05:31</b></span>
+          </div>
+          <div class="cell" data-begins="06:28" data-noiq="1">
+            <span class="cell-name" data-en="Sunrise" data-tr="G&#252;ne&#351;">Sunrise</span>
+            <b class="cell-begins">06:28</b>
+            <span class="cell-none" data-en="No congregation" data-tr="Cemaat yok">No congregation</span>
+          </div>
+          <div class="cell" data-begins="12:06">
+            <span class="cell-name" data-en="Dhuhr" data-tr="&#214;&#287;le">Dhuhr</span>
+            <b class="cell-begins">12:06</b>
+            <span class="cell-iq"><i class="tick" aria-hidden="true"></i><span data-en="Iqamah" data-tr="Cemaat">Iqamah</span> <b>12:21</b></span>
+          </div>
+          <div class="cell" data-begins="15:07">
+            <span class="cell-name" data-en="Asr" data-tr="&#304;kindi">Asr</span>
+            <b class="cell-begins">15:07</b>
+            <span class="cell-iq"><i class="tick" aria-hidden="true"></i><span data-en="Iqamah" data-tr="Cemaat">Iqamah</span> <b>15:22</b></span>
+          </div>
+          <div class="cell" data-begins="17:33">
+            <span class="cell-name" data-en="Maghrib" data-tr="Ak&#351;am">Maghrib</span>
+            <b class="cell-begins">17:33</b>
+            <span class="cell-iq"><i class="tick" aria-hidden="true"></i><span data-en="Iqamah" data-tr="Cemaat">Iqamah</span> <b>17:40</b></span>
+          </div>
+          <div class="cell" data-begins="18:45">
+            <span class="cell-name" data-en="Isha" data-tr="Yats&#305;">Isha</span>
+            <b class="cell-begins">18:45</b>
+            <span class="cell-iq"><i class="tick" aria-hidden="true"></i><span data-en="Iqamah" data-tr="Cemaat">Iqamah</span> <b>19:00</b></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="times-key">
+        <span data-en="Large time = prayer begins. Iqamah = congregation." data-tr="B&#252;y&#252;k rakam = vaktin giri&#351;i. Cemaat = kamet vakti.">Large time = prayer begins. Iqamah = congregation.</span>
+        <span data-en="Congregation times are stepped in quarter-hour blocks so regulars can memorise them." data-tr="Cemaat vakitleri &#231;eyrek saatlik bloklar halinde sabittir.">Congregation times are stepped in quarter-hour blocks so regulars can memorise them.</span>
+      </div>
+
+      <div class="jummah">
+        <div class="jum-head">
+          <span class="t" data-en="Jummah" data-tr="Cuma namaz&#305;">Jummah</span>
+          <span class="d" data-en="Next Friday 21 August 2026" data-tr="21 A&#287;ustos 2026 Cuma">Next Friday 21 August 2026</span>
+        </div>
+        <div class="jum">
+          <span class="jum-tag" data-en="Session 1 &#183; Turkish" data-tr="1. Vakit &#183; T&#252;rk&#231;e">Session 1 &#183; Turkish</span>
+          <span class="jum-slot"><span data-en="Athaan" data-tr="Ezan">Athaan</span><b class="tnum">12:30</b></span>
+          <span class="jum-slot"><span data-en="Khutbah" data-tr="Hutbe">Khutbah</span><b class="tnum">12:40</b></span>
+          <span class="jum-slot"><span data-en="Iqamah" data-tr="Kamet">Iqamah</span><b class="tnum">12:55</b></span>
+        </div>
+        <div class="jum">
+          <span class="jum-tag" data-en="Session 2 &#183; English" data-tr="2. Vakit &#183; &#304;ngilizce">Session 2 &#183; English</span>
+          <span class="jum-slot"><span data-en="Athaan" data-tr="Ezan">Athaan</span><b class="tnum">13:15</b></span>
+          <span class="jum-slot"><span data-en="Khutbah" data-tr="Hutbe">Khutbah</span><b class="tnum">13:25</b></span>
+          <span class="jum-slot"><span data-en="Iqamah" data-tr="Kamet">Iqamah</span><b class="tnum">13:40</b></span>
+        </div>
+      </div>
+
+      <aside class="annote annote--onblue" role="note">
+        <span class="annote-pin">1</span>
+        <p><strong>The flagship fix.</strong> The site today embeds an IslamicFinder widget labelled "Cremorne", a suburb 20 km away, showing astronomical times only. This strip is the mosque's own Diyanet-method data with begins and iqamah columns, and a live countdown. Nothing external to go down.</p>
+      </aside>
+
+      <aside class="annote annote--onblue" role="note">
+        <span class="annote-pin">2</span>
+        <p><strong>Jummah as data, not a sentence.</strong> Facebook currently publishes Friday times that do not match the website. Each session here carries athaan, khutbah, iqamah and its language, from one source, so the screens, the app and both sites always agree.</p>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow" data-en="Gelibolu Parade, Auburn &#183; Western Sydney" data-tr="Gelibolu Parade, Auburn &#183; Bat&#305; Sydney">Gelibolu Parade, Auburn &#183; Western Sydney</span>
+          <h1 data-en="Every day is an open day." data-tr="Her g&#252;n a&#231;&#305;k kap&#305; g&#252;n&#252;.">Every day is an open day.</h1>
+          <p class="lede">An Ottoman-style mosque built by Sydney's Turkish community and named for Gallipoli. A working house of prayer for 6,000 worshippers a week, and a landmark that welcomes more than 10,000 visitors a year, 95 per cent of them not Muslim.</p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#visit" data-en="Plan your visit" data-tr="Ziyaretinizi planlay&#305;n">Plan your visit</a>
+            <a class="btn btn-ghost" href="#prayer" data-en="Prayer times" data-tr="Namaz vakitleri">Prayer times</a>
+          </div>
+          <div class="hero-facts">
+            <span class="fact"><b class="tnum">10,000+</b><span>visitors a year</span></span>
+            <span class="fact"><b class="tnum">95%</b><span>of them not Muslim</span></span>
+            <span class="fact"><b class="tnum">6,000</b><span>worshippers weekly</span></span>
+            <span class="fact"><b class="tnum">683</b><span>visitors in June 2026 alone</span></span>
+          </div>
+        </div>
+        <div class="photo photo--hero ph-dusk">
+          <svg class="photo-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starPhoto)"></rect></svg>
+          <span class="photo-tag">PHOTO: the mosque at dusk from Gelibolu Parade, both minarets lit, courtyard gate open</span>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">3</span>
+        <p><strong>Receiving the traffic the mosque already has.</strong> The Google Business Profile, 4.9 stars from about 1,300 reviews, is the de facto homepage. The current site does nothing with that arrival: no visit path, no times, no story. This opening line is kept because it is a good one.</p>
+      </aside>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">4</span>
+        <p><strong>Visit takes the prime navigation slot.</strong> Today the main menu leads with "Islam (Allah / Muhammad / Quran)" and "Book a Tour" appears in the navigation of no page at all. Structure borrowed from museums, because for half its traffic this is a landmark building.</p>
+      </aside>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">5</span>
+        <p><strong>Turkish, live.</strong> Press TR. The menu, the prayer strip, the Diyanet prayer names and this headline switch. The site is English only today despite a Turkish khutbah and a Turkish-speaking congregation. No Australian mosque website exists in Turkish.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= VISIT ================= -->
+  <section class="band band--warm" id="visit">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="Visit" data-tr="Ziyaret">Visit</span>
+        <h2>Plan your visit</h2>
+        <p class="lede">Everything a first-time visitor, a coach driver or a head teacher needs to know, published before they have to ring anyone.</p>
+      </div>
+
+      <div class="visit-grid">
+        <div class="visit-item">
+          <h3>What to wear</h3>
+          <p>Modest clothing with shoulders and knees covered. Scarves and shoe covers are provided at the door, so nobody needs to bring anything or feel caught out.</p>
+        </div>
+        <div class="visit-item">
+          <h3>How long it takes</h3>
+          <p>A typical visit runs 45 to 60 minutes: the courtyard, the prayer hall, the &#304;znik tilework, and time for questions with a guide.</p>
+        </div>
+        <div class="visit-item">
+          <h3>Fridays</h3>
+          <p>The two Jummah congregations run from 12:30pm to about 1:40pm and the building is given over to worship. Visits are not scheduled across that window; Friday slots sit either side of it and are shown on the booking page.</p>
+        </div>
+        <div class="visit-item">
+          <h3>Getting here and parking</h3>
+          <p>Gelibolu Parade, Auburn. The coach drop-off point, parking and the walk to the visitors' entrance are mapped on this page, so a teacher can plan the trip without a phone call.</p>
+        </div>
+        <div class="visit-item">
+          <h3>Access</h3>
+          <p>Step-free routes, seating for anyone who cannot sit on the floor, and accessible bathrooms are described here in full rather than left to be discovered on the day.</p>
+        </div>
+        <div class="visit-item">
+          <h3>Photography</h3>
+          <p>Photography is welcome in the courtyard and the hall outside prayer times. Please ask before photographing anyone at prayer.</p>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">6</span>
+        <p><strong>What the current site never says.</strong> There is no dress code, duration, parking, accessibility or teacher information anywhere on gallipolimosque.org.au. The booking form contradicts itself on Friday tours, asks the booker's age and gender, and reveals a $5 per person charge only at the payment step.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= TOURS ================= -->
+  <section class="band band--paper" id="tours">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Tours</span>
+        <h2>Two ways to book a tour</h2>
+        <p class="lede">Free, but ticketed, so the mosque knows exactly who is coming. Both channels run on Humanitix, which is already in use here.</p>
+      </div>
+
+      <div class="grid g2">
+        <div class="card">
+          <div class="card-top">
+            <svg class="icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+              <rect x="1" y="1" width="38" height="38" rx="9" fill="#e9f0f9"></rect>
+              <g fill="none" stroke="#1d4e8f" stroke-width="1.8"><rect x="11" y="11" width="18" height="18"></rect><polygon points="20,7 33,20 20,33 7,20"></polygon></g>
+            </svg>
+            <span class="tag tag-cobalt">Public tours</span>
+          </div>
+          <h3>Anyone, any month</h3>
+          <p>Sessions are released monthly in batches so there is always a next date to book, never an empty calendar. Free entry is priced at $0.00 and still runs a full booking flow, which captures the visitor's email and creates a natural moment to give.</p>
+          <ul class="checks">
+            <li>Monthly batch release with capacity and waitlist</li>
+            <li>Published tour route, so people know what they will see</li>
+            <li>Donation prompt at the point of booking</li>
+            <li>QR check-in on the day</li>
+          </ul>
+          <p style="margin-top:16px;"><button class="btn btn-primary btn-sm" type="button" data-demo="Demo only. This would open the Humanitix session list.">Book a public tour</button></p>
+        </div>
+
+        <div class="card">
+          <div class="card-top">
+            <svg class="icon" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+              <rect x="1" y="1" width="38" height="38" rx="9" fill="#e4f2ef"></rect>
+              <g fill="none" stroke="#1c7a70" stroke-width="1.8"><rect x="11" y="11" width="18" height="18"></rect><polygon points="20,7 33,20 20,33 7,20"></polygon></g>
+            </svg>
+            <span class="tag tag-turq">Schools and groups</span>
+          </div>
+          <h3>Excursions, built for teachers</h3>
+          <p>A separate channel with its own lead times, capacity and paperwork, aligned to the NSW Syllabus and the Australian Curriculum. Schools that must pay from a purchase order use Pay by Invoice.</p>
+          <ul class="checks">
+            <li>Teacher resources for before and after the visit</li>
+            <li>Risk assessment and child-safety documents as downloads</li>
+            <li>Free familiarisation visits for registered teachers</li>
+            <li>Custom booking questions: school, year group, access needs</li>
+          </ul>
+          <p style="margin-top:16px;"><button class="btn btn-primary btn-sm" type="button" data-demo="Demo only. This would open the schools and groups scheduler.">Book a school visit</button></p>
+        </div>
+      </div>
+
+      <div class="photo ph-tour" style="margin-top:24px;">
+        <svg class="photo-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starPhoto)"></rect></svg>
+        <span class="photo-tag">PHOTO: a Year 8 class seated in the courtyard during a school tour, guide mid-sentence</span>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">7</span>
+        <p><strong>The Cambridge model, applied.</strong> Twenty tours and 683 visitors in June 2026 alone, run through a form that is not linked in the navigation of any page. Two channels, published route, and free-but-ticketed turns the strongest asset the mosque has into a working front door.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= GALLIPOLI STORY ================= -->
+  <section class="band band--ink" id="story">
+    <svg class="band-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starLight)"></rect></svg>
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">The Gallipoli story</span>
+          <h2>An Ottoman mosque in Sydney, named for Gallipoli.</h2>
+          <p class="lede">Built by the Turkish-Australian community and named for the campaign where their grandfathers and ours faced each other. It is a reconciliation story with national resonance, and nobody has ever told it on this website.</p>
+          <p class="lede">It is the single strongest untold story in Australian faith tourism, and it belongs to Auburn if Auburn moves first. Its own page, written for visitors, teachers and journalists alike.</p>
+          <p style="margin-top:20px;"><a class="btn btn-onblue" href="#tours">Read the Gallipoli story</a></p>
+        </div>
+        <div class="photo photo--tall ph-story">
+          <svg class="photo-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starPhoto)"></rect></svg>
+          <span class="photo-tag">PHOTO: the &#304;znik tile mihrab in close crop, with the calligraphic band above it</span>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">8</span>
+        <p><strong>An open goal.</strong> The survey of the world's best mosque sites found two things nobody in Australia has taken: a Turkish-language site, and this story. Both are Auburn's for the taking, and both are content, not code.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="band band--ground" id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="Services" data-tr="Hizmetler">Services</span>
+        <h2>Real bookings, not contact forms</h2>
+        <p class="lede">Four services people actually come here for, each with the availability, the fee and the process on the page.</p>
+      </div>
+
+      <div class="grid g2">
+        <div class="card">
+          <span class="tag tag-cobalt">Nikah</span>
+          <h3 style="margin-top:12px;">Marriage ceremony</h3>
+          <p>Real appointment booking with the celebrant's own availability, not an enquiry form. The Notice of Intended Marriage must be lodged at least one month and one day before the date, and the page explains that plainly.</p>
+          <div class="pricebox">
+            <span class="price"><span>Option A</span><b>$750</b><em>Ceremony package</em></span>
+            <span class="price"><span>Option B</span><b>$650</b><em>Plus hall hire</em></span>
+          </div>
+          <p style="margin-top:16px;"><button class="btn btn-primary btn-sm" type="button" data-demo="Demo only. This would open the celebrant's live availability.">Check available dates</button></p>
+        </div>
+
+        <div class="card" style="border-color:#e6b9b2;">
+          <span class="tag tag-tulip">Funerals &#183; 24/7</span>
+          <h3 style="margin-top:12px;">Janazah and the Funeral Fund</h3>
+          <p>A permanent, always-findable pathway: what to do in the first hour, who to call, what the mosque does, and how the Gallipoli Funeral Fund fits. Deaths do not wait for office hours, so this sits at the top level of the site and never moves.</p>
+          <ul class="meta-list" style="margin-top:12px;">
+            <li><b>Call</b><span>(02) 9646 5972, and the after-hours number published beside it</span></li>
+            <li><b>Then</b><span>Ghusl, janazah timing, burial and paperwork, step by step</span></li>
+            <li><b>Members</b><span>Gallipoli Funeral Fund claim pathway</span></li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag tag-turq">Meet an imam</span>
+          <h3 style="margin-top:12px;">Bookable pastoral appointments</h3>
+          <p>Marriage counselling, reversion, family matters and questions of faith, bookable across a two-week horizon with real availability. No phone tag, no waiting outside after prayer hoping to catch someone.</p>
+          <p style="margin-top:16px;"><button class="btn btn-ghost btn-sm" type="button" data-demo="Demo only. This would open a two-week appointment calendar.">Book an appointment</button></p>
+        </div>
+
+        <div class="card">
+          <span class="tag tag-cobalt">Venue and equipment</span>
+          <h3 style="margin-top:12px;">Hall and chair hire</h3>
+          <p>The halls and the existing chair-hire business on one page with real availability, capacities and rates, instead of an empty store page that nobody can reach from the menu.</p>
+          <p style="margin-top:16px;"><button class="btn btn-ghost btn-sm" type="button" data-demo="Demo only. This would show hall availability and rates.">See availability</button></p>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">9</span>
+        <p><strong>Janazah belongs at the top level.</strong> Every major mosque site in the survey treats it that way, and the current site has no findable funeral pathway at all. The Nikah page is kept almost as it stands, because it is the best page on the existing site.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= LEARN ================= -->
+  <section class="band band--paper" id="learn">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="Learn" data-tr="E&#287;itim">Learn</span>
+        <h2>Learning at the mosque</h2>
+      </div>
+
+      <div class="grid g3">
+        <div class="card">
+          <span class="tag tag-turq">Quran School</span>
+          <h3 style="margin-top:12px;">Enrolment, on the page</h3>
+          <p>Everything a parent asks before they enrol, answered in one place and kept current by the school itself:</p>
+          <ul class="checks">
+            <li>Age groups and the class each child joins</li>
+            <li>Days, times and term dates</li>
+            <li>Fees, sibling rates and how to pay</li>
+            <li>The enrolment form, submitted online</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <span class="tag tag-cobalt">Diploma in Islamic Studies</span>
+          <h3 style="margin-top:12px;">Back on the main domain</h3>
+          <p>Curriculum, structure and online enrolment, folded back under gallipolimosque.org.au so the broken subdomain can be retired permanently.</p>
+          <div class="pricebox">
+            <span class="price"><span>Tuition</span><b>$100</b><em>per month</em></span>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag tag-cobalt">Turkish School</span>
+          <h3 style="margin-top:12px;">Language and culture</h3>
+          <p>A proper page here for families who arrive through the mosque, with the detail and enrolment held on the Foundation site and linked both ways, so the two sites stop competing.</p>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">10</span>
+        <p><strong>Live but empty.</strong> The Quran School page exists today and carries no ages, days, fees, terms or enrolment. A parent who lands on it learns nothing and rings the office instead. The Volunteers page is empty in exactly the same way.</p>
+      </aside>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">11</span>
+        <p><strong>The banner that breaks the browser.</strong> The Diploma is advertised in a banner on all 21 pages, and every click lands on a full-screen security warning because the TLS certificate on study.gallipolimosque.org.au has expired. Folding it back under the main domain fixes that permanently.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= COMMUNITY ================= -->
+  <section class="band band--warm" id="community">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="Community" data-tr="Cemaat">Community</span>
+        <h2>Getting involved</h2>
+        <p class="lede">Real pages with named contacts, not a menu item that leads to a blank screen.</p>
+      </div>
+      <div class="grid g4">
+        <div class="card"><h3>Sisters' program</h3><p>Weekly gatherings, classes and the women's programs run with the Foundation, with a named contact and a phone-first pathway.</p></div>
+        <div class="card"><h3>Youth</h3><p>The iYouth Centre and the mosque's own youth activities, linked into the Foundation site so families see one organisation, not two.</p></div>
+        <div class="card"><h3>Seniors</h3><p>Seniors programs and the connection to Gallipoli Home, the 102-bed aged care home run by the Foundation next door.</p></div>
+        <div class="card"><h3>Volunteering</h3><p>The actual roles: tour guides, Friday parking marshals, school-visit helpers, kitchen and events. Working With Children Check and induction explained up front.</p></div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">12</span>
+        <p><strong>A volunteer page that lists roles.</strong> The current Volunteers page is live and blank, so an offer of help has nowhere to land. Naming the roles and stating the Working With Children Check requirement turns goodwill into rostered people.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= WHAT'S ON ================= -->
+  <section class="band band--ground" id="whatson">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="What&#8217;s On" data-tr="Etkinlikler">What&#8217;s On</span>
+        <h2>What&#8217;s on</h2>
+        <p class="lede">Fed from Humanitix and posted through the content system in minutes, on the mosque's own domain for the first time.</p>
+      </div>
+
+      <div class="grid g3">
+        <div class="event">
+          <span class="event-date"><span class="m">Nov</span><span class="d">20</span></span>
+          <div>
+            <h3>Harmony Festival 2026</h3>
+            <p>20 and 21 November 2026. The Foundation's festival at the mosque, ticketed through Humanitix and listed here automatically.</p>
+            <span class="tag tag-turq">Fed from Humanitix</span>
+          </div>
+        </div>
+        <div class="event">
+          <span class="event-date"><span class="m">Tours</span><span class="d">&#8734;</span></span>
+          <div>
+            <h3>Public mosque tours</h3>
+            <p>Released in monthly batches so the calendar is never empty. Free, ticketed, with a donation prompt at booking.</p>
+            <span class="tag tag-cobalt">Monthly batch release</span>
+          </div>
+        </div>
+        <div class="event">
+          <span class="event-date"><span class="m">Open</span><span class="d">Day</span></span>
+          <div>
+            <h3>National Mosque Open Day</h3>
+            <p>A permanent page at a stable URL, re-dressed each year rather than rebuilt, so every link and every poster QR code keeps working.</p>
+            <span class="tag tag-note">Evergreen page</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <span class="tag tag-cobalt">Ramadan</span>
+        <h3 style="margin-top:12px;">A Ramadan portal at a stable URL</h3>
+        <p>The imsakiye published as a page and as a PDF from the same prayer-time data that drives the strip at the top of this page, plus iftar programs, taraweeh and the Eid announcement. Nothing hand-typed, nothing to expire.</p>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">13</span>
+        <p><strong>Events currently live everywhere but here.</strong> They are on Facebook, Humanitix and AllEvents.in, and none of those link back. This section is the first time an event lives on the mosque's own domain, which is also the only version Google will index as the mosque's.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= DONATE ================= -->
+  <section class="band band--paper" id="donate">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-en="Donate" data-tr="Ba&#287;&#305;&#351;">Donate</span>
+        <h2>Give to a named fund</h2>
+        <p class="lede">Named funds beat one donate button, and the receipt has to be honest about which gifts are deductible. Choose a fund and watch the receipt wording change.</p>
+      </div>
+
+      <div class="donate-grid">
+        <div>
+          <div class="funds" id="funds" role="group" aria-label="Choose a fund">
+            <button class="fund" type="button" data-fund="zekat" aria-pressed="false"><b>Zekat</b><span>Zakat al-Mal</span></button>
+            <button class="fund" type="button" data-fund="fitrah" aria-pressed="false"><b>Fitrah</b><span>Zakat al-Fitr, before Eid prayer</span></button>
+            <button class="fund" type="button" data-fund="kindness" aria-pressed="false"><b>Kindness Box</b><span>Local hardship support</span></button>
+            <button class="fund" type="button" data-fund="scholarship" aria-pressed="true"><b>Scholarship Fund</b><span>Gallipoli Mosque Scholarship Fund</span></button>
+            <button class="fund" type="button" data-fund="general" aria-pressed="false"><b>General</b><span>Mosque expenses</span></button>
+            <button class="fund" type="button" data-fund="renovation" aria-pressed="false"><b>Renovation Appeal</b><span>Building works</span></button>
+          </div>
+
+          <div class="amounts" id="amounts" role="group" aria-label="Choose an amount">
+            <button class="amt" type="button" data-amt="$50" aria-pressed="false">$50</button>
+            <button class="amt" type="button" data-amt="$100" aria-pressed="true">$100</button>
+            <button class="amt" type="button" data-amt="$250" aria-pressed="false">$250</button>
+            <button class="amt" type="button" data-amt="$500" aria-pressed="false">$500</button>
+            <button class="amt" type="button" data-amt="Other" aria-pressed="false">Other</button>
+          </div>
+
+          <div class="freq" id="freq" role="group" aria-label="Giving frequency">
+            <button type="button" data-freq="One-off" aria-pressed="true">One-off</button>
+            <button type="button" data-freq="Monthly" aria-pressed="false">Monthly</button>
+          </div>
+
+          <p style="margin-top:20px;">
+            <button class="btn btn-tulip" type="button" data-demo="Demo only. This would hand over to GiveNow, which issues the receipt.">Give now</button>
+          </p>
+          <p style="font-size:.84rem;color:var(--muted);">Bank transfer details are kept on this page as well, for anyone who prefers them. ABN 18 044 027 709.</p>
+        </div>
+
+        <div class="receipt">
+          <div class="receipt-top">
+            <b>Your receipt will say</b>
+            <span class="tag tag-note">Live preview</span>
+          </div>
+          <div class="receipt-body">
+            <dl>
+              <div><dt>Fund</dt><dd id="rFund">Gallipoli Mosque Scholarship Fund</dd></div>
+              <div><dt>Amount</dt><dd id="rAmt">$100</dd></div>
+              <div><dt>Frequency</dt><dd id="rFreq">One-off</dd></div>
+              <div><dt>Receipted to</dt><dd>ABN 18 044 027 709</dd></div>
+            </dl>
+            <div class="ded yes" id="rDed">
+              <b id="rDedTitle">Tax deductible</b>
+              <span id="rDedText">This gift is to the Gallipoli Mosque Scholarship Fund, the one fund covered by GTCF's DGR endorsement (Item 1, effective 5 August 2025). Gifts of $2 or more are tax deductible and the receipt names the fund and the ABN.</span>
+            </div>
+            <p class="abnline" id="rNote">Gallipoli Turkish Cultural Foundation Ltd. Auburn Gallipoli Mosque is a registered business name of the same ABN.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="annote" role="note">
+        <span class="annote-pin">14</span>
+        <p><strong>One fund is deductible, and only one.</strong> Verified on the Australian Business Register: DGR covers the Scholarship Fund alone. Writing "tax deductible" on a zakat or renovation gift would be a false representation. Today there are two competing donation pages, no ABN, and a WhatsApp link that shows JotForm's logo.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= TURKISH ================= -->
+  <section class="band band--warm" id="turkish">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">T&#252;rk&#231;e</span>
+        <h2>The first Turkish-language mosque website in Australia</h2>
+        <p class="lede">Full Turkish for the pages the congregation actually uses: prayer times, Jummah, Ramadan, services, Quran School and donations. Pages not yet translated show English, never an error.</p>
+      </div>
+
+      <div class="grid g2">
+        <div>
+          <div class="tr-wrapscroll">
+            <table class="tr-table">
+              <caption class="sr">Prayer names in English and Turkish</caption>
+              <thead>
+                <tr><th>English</th><th>T&#252;rk&#231;e (Diyanet)</th><th>Begins</th><th>Iqamah</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Fajr</td><td class="turk">&#304;msak</td><td class="tnum">05:11</td><td class="tnum">05:31</td></tr>
+                <tr><td>Sunrise</td><td class="turk">G&#252;ne&#351;</td><td class="tnum">06:28</td><td>None</td></tr>
+                <tr><td>Dhuhr</td><td class="turk">&#214;&#287;le</td><td class="tnum">12:06</td><td class="tnum">12:21</td></tr>
+                <tr><td>Asr</td><td class="turk">&#304;kindi</td><td class="tnum">15:07</td><td class="tnum">15:22</td></tr>
+                <tr><td>Maghrib</td><td class="turk">Ak&#351;am</td><td class="tnum">17:33</td><td class="tnum">17:40</td></tr>
+                <tr><td>Isha</td><td class="turk">Yats&#305;</td><td class="tnum">18:45</td><td class="tnum">19:00</td></tr>
+                <tr><td>Jummah</td><td class="turk">Cuma</td><td class="tnum">12:30</td><td class="tnum">12:55</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="font-size:.86rem;color:var(--muted);margin-top:12px;">Sunrise has no congregation, which is why the column reads None rather than showing a time nobody should turn up for. These are the Diyanet names the congregation already uses.</p>
+        </div>
+
+        <div class="card">
+          <h3>What the toggle really does</h3>
+          <p>Press TR at the top of this page. The navigation, the prayer strip, the prayer names, the Jummah labels, the date and the headline all switch. A notice appears in Turkish explaining that the untranslated sections stay in English.</p>
+          <ul class="checks">
+            <li>Turkish content is authored in the CMS, not machine-translated on the fly</li>
+            <li>Turkish URLs of their own, so Google indexes them separately</li>
+            <li>A missing translation falls back to English rather than breaking</li>
+          </ul>
+          <p style="margin-top:16px;">
+            <button class="btn btn-primary btn-sm" type="button" id="tryTr">Try it: switch to T&#252;rk&#231;e</button>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INTERIOR VIGNETTES ================= -->
+  <section class="band band--ink" id="interiors">
+    <svg class="band-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starLight)"></rect></svg>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Inside the site</span>
+        <h2>Three interior pages</h2>
+        <p class="lede">The homepage above is the shop window. These are the pages that do the work.</p>
+      </div>
+
+      <!-- Vignette 1: prayer times -->
+      <div class="browser" id="prayer" style="margin-bottom:28px;">
+        <div class="browser-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gallipolimosque.org.au/prayer-times</span>
+        </div>
+        <div class="browser-body">
+          <h3>Prayer times</h3>
+          <p style="color:var(--ink-soft);font-size:.94rem;">Our own table, generated yearly from the Diyanet method and verified within 0 to 2 minutes of Diyanet's own Auburn page. The same data drives this site, the Turkish pages, the prayer hall screens and the Mawaqit app.</p>
+          <div class="mini-scroll">
+            <table class="mini-table">
+              <caption class="sr">Saturday 15 August 2026 prayer times</caption>
+              <thead><tr><th>Saturday 15 August 2026</th><th>Begins</th><th>Iqamah</th><th>Congregation block</th></tr></thead>
+              <tbody>
+                <tr><td>Fajr</td><td>05:11</td><td>05:31</td><td>Begins plus 20 minutes</td></tr>
+                <tr><td>Sunrise</td><td>06:28</td><td>None</td><td>No congregation</td></tr>
+                <tr><td>Dhuhr</td><td>12:06</td><td>12:21</td><td>Fixed 12:21 for the season</td></tr>
+                <tr><td>Asr</td><td>15:07</td><td>15:22</td><td>Begins plus 15 minutes</td></tr>
+                <tr><td>Maghrib</td><td>17:33</td><td>17:40</td><td>Begins plus 7 minutes</td></tr>
+                <tr><td>Isha</td><td>18:45</td><td>19:00</td><td>Fixed 19:00 for the season</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="admin">
+            <div class="adm-h">Editor view &#183; prayer time settings</div>
+            <div class="admin-row"><b>Jummah session 1</b><span>Athaan 12:30 &#183; Khutbah 12:40 &#183; Iqamah 12:55 &#183; Turkish</span></div>
+            <div class="admin-row"><b>Jummah session 2</b><span>Athaan 13:15 &#183; Khutbah 13:25 &#183; Iqamah 13:40 &#183; English</span></div>
+            <div class="admin-row"><b>Season</b><span>Range ends 3 October 2026 (daylight saving)</span></div>
+            <div class="warnbar">
+              <span class="wi" aria-hidden="true">&#9888;</span>
+              <span>This Jummah range expires on 3 October 2026. You were warned 21 days ago and you will be reminded weekly until the next range is set. The site will not silently publish a wrong time.</span>
+            </div>
+          </div>
+
+          <aside class="annote annote--tight" role="note">
+            <span class="annote-pin">15</span>
+            <p><strong>The failure made structurally impossible.</strong> The homepage today hard-codes "12:30pm and 1:15pm until October 3, 2026". On 3 October it silently becomes wrong unless a person remembers. Here the seasonal range is data, and the editor is warned 21 days out.</p>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Vignette 2: schools -->
+      <div class="browser" style="margin-bottom:28px;">
+        <div class="browser-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gallipolimosque.org.au/visit/schools</span>
+        </div>
+        <div class="browser-body">
+          <h3>Schools and teachers</h3>
+          <div class="grid g2">
+            <div>
+              <p style="color:var(--ink-soft);font-size:.94rem;">Curriculum alignment stated, not implied. Every document a head teacher needs before the excursion is approved sits on this page, and registered teachers can come and see the building for themselves first, free.</p>
+              <ul class="checks">
+                <li>NSW Syllabus and Australian Curriculum alignment by stage</li>
+                <li>Classroom resources for before and after the visit</li>
+                <li>Free familiarisation visit for registered teachers</li>
+                <li>Pay by Invoice for schools working from a purchase order</li>
+              </ul>
+              <ul class="dl-list">
+                <li><span class="ext">PDF</span> Risk assessment</li>
+                <li><span class="ext">PDF</span> Child safety and supervision policy</li>
+                <li><span class="ext">PDF</span> Pre-visit classroom pack</li>
+              </ul>
+            </div>
+            <div class="photo ph-school">
+              <svg class="photo-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starPhoto)"></rect></svg>
+              <span class="photo-tag">PHOTO: students in shoe covers at the prayer hall threshold, teacher in frame</span>
+            </div>
+          </div>
+
+          <aside class="annote annote--tight" role="note">
+            <span class="annote-pin">16</span>
+            <p><strong>The Islamic Museum of Australia model.</strong> Syllabus alignment, teacher resources, free familiarisation visits and professional development certificates. Nothing like it exists at any Australian mosque, and Auburn already has the visitors: 95 per cent of them are not Muslim.</p>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Vignette 3: nikah -->
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gallipolimosque.org.au/services/nikah</span>
+        </div>
+        <div class="browser-body">
+          <h3>Nikah booking</h3>
+          <div class="grid g2">
+            <div>
+              <ul class="meta-list">
+                <li><b>Option A</b><span>$750, ceremony package</span></li>
+                <li><b>Option B</b><span>$650 plus hall hire</span></li>
+                <li><b>Notice period</b><span>Notice of Intended Marriage, at least one month and one day before</span></li>
+                <li><b>Deposit</b><span>Taken at booking, balance before the day</span></li>
+                <li><b>Booking</b><span>The celebrant's real availability, not an enquiry form</span></li>
+              </ul>
+            </div>
+            <div>
+              <div class="card" style="background:var(--paper-warm);">
+                <div class="adm-h" style="font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:10px;">Next available</div>
+                <div class="admin-row"><b>Sat 22 August 2026</b><span>11:00am &#183; 2:00pm</span></div>
+                <div class="admin-row"><b>Sun 23 August 2026</b><span>1:00pm</span></div>
+                <div class="admin-row"><b>Sat 29 August 2026</b><span>10:30am &#183; 1:30pm &#183; 3:30pm</span></div>
+                <p style="margin:14px 0 0;"><button class="btn btn-primary btn-sm" type="button" data-demo="Demo only. This would hold the slot and take the deposit.">Hold this time</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="foot" id="about">
+    <svg class="band-motif" aria-hidden="true" focusable="false"><rect width="100%" height="100%" fill="url(#starLight)"></rect></svg>
+    <div class="wrap">
+      <div class="foot-grid">
+        <div>
+          <p class="foot-name">Auburn Gallipoli Mosque</p>
+          <p style="font-size:.9rem;margin-bottom:.6em;">13-15 Gelibolu Parade<br>Auburn NSW 2144<br>(02) 9646 5972</p>
+          <p style="font-size:.85rem;color:#9fb6d4;">A registered business name of Gallipoli Turkish Cultural Foundation Ltd, ABN 18 044 027 709. Registered charity with the ACNC.</p>
+          <div class="socials">
+            <a href="#about">Facebook</a>
+            <a href="#about">Instagram</a>
+            <a href="#about">YouTube</a>
+          </div>
+          <p style="font-size:.85rem;margin-top:14px;"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.9 from about 1,300 Google reviews</p>
+        </div>
+        <div>
+          <h4 data-en="Prayer &amp; worship" data-tr="&#304;badet">Prayer &amp; worship</h4>
+          <ul>
+            <li><a href="#prayer" data-en="Prayer times" data-tr="Namaz vakitleri">Prayer times</a></li>
+            <li><a href="#prayer" data-en="Jummah" data-tr="Cuma namaz&#305;">Jummah</a></li>
+            <li><a href="#whatson">Ramadan and imsakiye</a></li>
+            <li><a href="#services">Janazah and funerals</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Visit" data-tr="Ziyaret">Visit</h4>
+          <ul>
+            <li><a href="#visit">Plan your visit</a></li>
+            <li><a href="#tours">Public tours</a></li>
+            <li><a href="#interiors">Schools and teachers</a></li>
+            <li><a href="#story">The Gallipoli story</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 data-en="Get involved" data-tr="Kat&#305;l&#305;m">Get involved</h4>
+          <ul>
+            <li><a href="#donate" data-en="Donate" data-tr="Ba&#287;&#305;&#351;">Donate</a></li>
+            <li><a href="#community">Volunteer</a></li>
+            <li><a href="#learn">Quran School enrolment</a></li>
+            <li><a href="#about">Gallipoli Turkish Cultural Foundation</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>Concept mockup for discussion. Prayer times shown are the sample day of 15 August 2026.</span>
+        <span>Privacy &#183; Accessibility &#183; Contact</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('mockup');
+  if(!root){ return; }
+
+  /* ---------- explainer toggle ---------- */
+  var annBtn = document.getElementById('annToggle');
+  var annTxt = document.getElementById('annToggleText');
+  annBtn.addEventListener('click', function(){
+    var on = !root.classList.contains('ann-off');
+    if(on){
+      root.classList.add('ann-off');
+      annBtn.setAttribute('aria-pressed','false');
+      annTxt.textContent = 'Explainers: OFF';
+    } else {
+      root.classList.remove('ann-off');
+      annBtn.setAttribute('aria-pressed','true');
+      annTxt.textContent = 'Explainers: ON';
+    }
+  });
+
+  /* ---------- language toggle ---------- */
+  var I18N = {
+    en: { units:['h','m'], nextIn:'in' },
+    tr: { units:['sa','dk'], nextIn:'sonra' }
+  };
+  var lang = 'en';
+  var enBtn = document.getElementById('langEn');
+  var trBtn = document.getElementById('langTr');
+  var trNote = document.getElementById('trNote');
+
+  function setLang(next){
+    lang = next;
+    var nodes = root.querySelectorAll('[data-en]');
+    for(var i=0;i<nodes.length;i++){
+      var n = nodes[i];
+      var v = (lang === 'tr') ? n.getAttribute('data-tr') : n.getAttribute('data-en');
+      if(v !== null){ n.innerHTML = v; }
+    }
+    enBtn.setAttribute('aria-pressed', lang === 'en' ? 'true' : 'false');
+    trBtn.setAttribute('aria-pressed', lang === 'tr' ? 'true' : 'false');
+    if(lang === 'tr'){ trNote.removeAttribute('hidden'); } else { trNote.setAttribute('hidden',''); }
+    tick();
+  }
+  enBtn.addEventListener('click', function(){ setLang('en'); });
+  trBtn.addEventListener('click', function(){ setLang('tr'); });
+  var tryTr = document.getElementById('tryTr');
+  if(tryTr){
+    tryTr.addEventListener('click', function(){
+      setLang(lang === 'tr' ? 'en' : 'tr');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ---------- prayer strip: next prayer + countdown ---------- */
+  var cells = root.querySelectorAll('#times .cell');
+  var nextName = document.getElementById('nextName');
+  var nextCount = document.getElementById('nextCount');
+
+  function minutesOf(hhmm){
+    var p = hhmm.split(':');
+    return (parseInt(p[0],10) * 60) + parseInt(p[1],10);
+  }
+
+  function tick(){
+    var now = new Date();
+    var mins = now.getHours() * 60 + now.getMinutes();
+    var secs = now.getSeconds();
+    var pick = -1, delta = null;
+    for(var i=0;i<cells.length;i++){
+      if(cells[i].getAttribute('data-noiq')){ continue; }
+      var m = minutesOf(cells[i].getAttribute('data-begins'));
+      if(m > mins){ pick = i; delta = m - mins; break; }
+    }
+    if(pick === -1){
+      for(var j=0;j<cells.length;j++){
+        if(!cells[j].getAttribute('data-noiq')){ pick = j; break; }
+      }
+      delta = (1440 - mins) + minutesOf(cells[pick].getAttribute('data-begins'));
+    }
+    for(var k=0;k<cells.length;k++){
+      if(k === pick){ cells[k].classList.add('is-next'); } else { cells[k].classList.remove('is-next'); }
+    }
+    var nameEl = cells[pick].querySelector('.cell-name');
+    /* the name is stored as an HTML entity so Turkish diacritics survive any encoding */
+    nextName.innerHTML = (lang === 'tr') ? nameEl.getAttribute('data-tr') : nameEl.getAttribute('data-en');
+    /* countdown, seconds trimmed off the current minute */
+    var total = (delta * 60) - secs;
+    if(total < 0){ total = 0; }
+    var h = Math.floor(total / 3600);
+    var mm = Math.floor((total % 3600) / 60);
+    var u = I18N[lang].units;
+    var text = (h > 0 ? h + u[0] + ' ' : '') + mm + u[1];
+    nextCount.innerHTML = (lang === 'tr') ? (text + ' ' + I18N.tr.nextIn) : (I18N.en.nextIn + ' ' + text);
+  }
+  tick();
+  setInterval(tick, 1000);
+
+  /* ---------- strip compresses once pinned ---------- */
+  var strip = document.getElementById('strip');
+  var stripTop = strip.offsetTop;
+  function onScroll(){
+    if(window.pageYOffset > stripTop + 8){ strip.classList.add('pinned'); }
+    else { strip.classList.remove('pinned'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive:true });
+  window.addEventListener('resize', function(){ stripTop = strip.offsetTop; });
+  onScroll();
+
+  /* ---------- donation fund selector ---------- */
+  var FUNDS = {
+    scholarship: {
+      name: 'Gallipoli Mosque Scholarship Fund',
+      deductible: true,
+      title: 'Tax deductible',
+      text: 'This gift is to the Gallipoli Mosque Scholarship Fund, the one fund covered by the GTCF DGR endorsement (Item 1, effective 5 August 2025). Gifts of $2 or more are tax deductible and the receipt names the fund and the ABN.',
+      note: 'Gallipoli Turkish Cultural Foundation Ltd. Auburn Gallipoli Mosque is a registered business name of the same ABN.'
+    },
+    zekat: {
+      name: 'Zekat (Zakat al-Mal)',
+      deductible: false,
+      title: 'Not tax deductible',
+      text: 'You will receive a warm acknowledgement and a record of your gift quoting the ABN, but zekat cannot be claimed at tax time. the GTCF DGR endorsement covers the Scholarship Fund only.',
+      note: 'Zekat is held as a restricted fund in the accounts and distributed to eligible recipients.'
+    },
+    fitrah: {
+      name: 'Fitrah (Zakat al-Fitr)',
+      deductible: false,
+      title: 'Not tax deductible',
+      text: 'You will receive a warm acknowledgement and a record of your gift quoting the ABN. Fitrah is not tax deductible; the GTCF DGR endorsement covers the Scholarship Fund only.',
+      note: 'Fitrah is collected and distributed before the Eid prayer.'
+    },
+    kindness: {
+      name: 'Kindness Box',
+      deductible: false,
+      title: 'Not tax deductible',
+      text: 'You will receive a warm acknowledgement and a record of your gift quoting the ABN, with no deductibility claimed. Advancing religion is a charitable purpose but it is not a DGR category.',
+      note: 'The Kindness Box supports local families in hardship.'
+    },
+    general: {
+      name: 'General (mosque expenses)',
+      deductible: false,
+      title: 'Not tax deductible',
+      text: 'General donations are not tax deductible. Your receipt acknowledges the gift and quotes the ABN, and says nothing it cannot say honestly.',
+      note: 'General gifts cover utilities, maintenance, imams and the day to day running of the mosque.'
+    },
+    renovation: {
+      name: 'Renovation Appeal',
+      deductible: false,
+      title: 'Not tax deductible',
+      text: 'Renovation gifts are not deductible. The only building-fund DGR category is a school building fund, and it does not apply where worship and instruction share the building. Writing "tax deductible" here would be a false representation.',
+      note: 'The appeal page states this before you give, not after.'
+    }
+  };
+
+  var fundBtns = root.querySelectorAll('#funds .fund');
+  var amtBtns = root.querySelectorAll('#amounts .amt');
+  var freqBtns = root.querySelectorAll('#freq button');
+  var rFund = document.getElementById('rFund');
+  var rAmt = document.getElementById('rAmt');
+  var rFreq = document.getElementById('rFreq');
+  var rDed = document.getElementById('rDed');
+  var rDedTitle = document.getElementById('rDedTitle');
+  var rDedText = document.getElementById('rDedText');
+  var rNote = document.getElementById('rNote');
+  var state = { fund:'scholarship', amt:'$100', freq:'One-off' };
+
+  function paint(){
+    var f = FUNDS[state.fund];
+    rFund.textContent = f.name;
+    rAmt.textContent = state.amt;
+    rFreq.textContent = state.freq;
+    rDedTitle.textContent = f.title;
+    rDedText.textContent = f.text;
+    rNote.textContent = f.note;
+    rDed.className = 'ded ' + (f.deductible ? 'yes' : 'no');
+    if(state.freq === 'Monthly'){
+      rDedText.textContent = f.text + ' A consolidated receipt for the full year is issued each July.';
+    }
+  }
+  function group(list, attr, key){
+    for(var i=0;i<list.length;i++){
+      (function(btn){
+        btn.addEventListener('click', function(){
+          for(var j=0;j<list.length;j++){ list[j].setAttribute('aria-pressed','false'); }
+          btn.setAttribute('aria-pressed','true');
+          state[key] = btn.getAttribute(attr);
+          paint();
+        });
+      })(list[i]);
+    }
+  }
+  group(fundBtns, 'data-fund', 'fund');
+  group(amtBtns, 'data-amt', 'amt');
+  group(freqBtns, 'data-freq', 'freq');
+  paint();
+
+  /* ---------- inert demo buttons ---------- */
+  var toast = document.getElementById('toast');
+  var toastTimer = null;
+  root.addEventListener('click', function(e){
+    var t = e.target;
+    while(t && t !== root && !t.getAttribute){ t = t.parentNode; }
+    while(t && t !== root && !t.hasAttribute('data-demo')){ t = t.parentNode; }
+    if(!t || t === root){ return; }
+    toast.textContent = t.getAttribute('data-demo');
+    toast.classList.add('show');
+    if(toastTimer){ clearTimeout(toastTimer); }
+    toastTimer = setTimeout(function(){ toast.classList.remove('show'); }, 2600);
+  });
+})();
+</script>
+
+</body>
+</html>

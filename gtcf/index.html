@@ -1,0 +1,1644 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>GTCF Website Concept</title>
+</head>
+<body>
+<style>
+/* ==========================================================================
+   GTCF website concept mockup
+   Civic modern: deep forest green + warm gold on off-white
+   Self contained. No external requests.
+   ========================================================================== */
+
+:root{
+  --ink:#0E2A21;
+  --green:#154536;
+  --green-mid:#1E5B47;
+  --green-soft:#E9F0EC;
+  --green-line:#C9DCD2;
+  --gold:#A9741A;
+  --gold-bright:#C99026;
+  --gold-soft:#F6ECD6;
+  --ground:#FBF9F4;
+  --paper:#FFFFFF;
+  --text:#2C3A33;
+  --muted:#5C6B63;
+  --line:#E4DFD3;
+  --line-strong:#D2CBBA;
+
+  --amber-bg:#FFF8E6;
+  --amber-line:#E3C275;
+  --amber-text:#4A3707;
+  --amber-pin:#A9741A;
+
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  --r-sm:6px; --r-md:12px; --r-lg:20px; --r-xl:28px;
+
+  --shadow-sm:0 1px 2px rgba(14,42,33,.06), 0 2px 8px rgba(14,42,33,.05);
+  --shadow-md:0 2px 6px rgba(14,42,33,.07), 0 14px 34px rgba(14,42,33,.08);
+
+  --sans:"Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono:"Cascadia Mono", "Segoe UI Mono", Consolas, "Roboto Mono", monospace;
+
+  --header-h:66px;
+}
+
+*,*::before,*::after{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--text);
+  font-family:var(--sans);
+  font-size:17px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+
+img,svg{ max-width:100%; }
+
+h1,h2,h3,h4{
+  font-family:var(--sans);
+  color:var(--ink);
+  margin:0 0 var(--s4);
+  line-height:1.12;
+  letter-spacing:-.022em;
+  font-weight:700;
+}
+
+p{ margin:0 0 var(--s4); }
+p:last-child{ margin-bottom:0; }
+
+a{ color:var(--green); text-decoration-thickness:1px; text-underline-offset:3px; }
+
+:focus-visible{
+  outline:3px solid var(--gold-bright);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.tnum{ font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1; }
+
+.wrap{ width:100%; max-width:1180px; margin:0 auto; padding:0 24px; }
+.wrap-narrow{ max-width:860px; }
+
+section{ scroll-margin-top:calc(var(--header-h) + 12px); }
+
+.band{ padding:clamp(52px, 7vw, 100px) 0; }
+.band--tight{ padding:clamp(36px, 4.5vw, 64px) 0; }
+.band--paper{ background:var(--paper); border-block:1px solid var(--line); }
+.band--green{ background:var(--green); color:#E7F0EB; }
+.band--green h2,.band--green h3{ color:#FFFFFF; }
+.band--soft{ background:var(--green-soft); border-block:1px solid var(--green-line); }
+
+.eyebrow{
+  font-size:.72rem;
+  font-weight:700;
+  letter-spacing:.17em;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin:0 0 var(--s3);
+}
+.band--green .eyebrow{ color:#E4C883; }
+
+.h-display{
+  font-size:clamp(2.35rem, 5.6vw, 4.05rem);
+  font-weight:800;
+  letter-spacing:-.035em;
+  line-height:1.02;
+}
+.h-section{
+  font-size:clamp(1.62rem, 3.3vw, 2.35rem);
+  font-weight:750;
+  letter-spacing:-.028em;
+}
+.h-card{
+  font-size:1.14rem;
+  font-weight:700;
+  letter-spacing:-.014em;
+  margin-bottom:var(--s2);
+}
+.lede{
+  font-size:clamp(1.02rem, 1.5vw, 1.2rem);
+  color:var(--muted);
+  max-width:64ch;
+}
+.band--green .lede{ color:#C6D9D0; }
+
+.section-head{ max-width:70ch; margin-bottom:clamp(28px, 4vw, 46px); }
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex; align-items:center; gap:9px;
+  font:inherit; font-weight:650; font-size:.97rem;
+  padding:13px 22px;
+  border-radius:999px;
+  border:1.5px solid transparent;
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .16s ease, background-color .16s ease, border-color .16s ease;
+}
+.btn:hover{ transform:translateY(-1px); }
+.btn--primary{ background:var(--green); color:#FFF; }
+.btn--primary:hover{ background:var(--green-mid); }
+.btn--gold{ background:var(--gold-bright); color:#231703; }
+.btn--gold:hover{ background:#DCA33A; }
+.btn--ghost{ background:transparent; color:var(--green); border-color:var(--line-strong); }
+.btn--ghost:hover{ border-color:var(--green); background:#FFF; }
+.btn--sm{ padding:9px 16px; font-size:.88rem; }
+.btn .arw{ font-size:1.05em; line-height:1; }
+
+/* ---------- header ---------- */
+.siteheader{
+  position:sticky; top:0; z-index:50;
+  background:rgba(251,249,244,.94);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.headbar{
+  display:flex; align-items:center; gap:var(--s5);
+  height:var(--header-h);
+}
+.brand{ display:flex; align-items:center; gap:11px; text-decoration:none; margin-right:auto; }
+.brand-mark{
+  width:36px; height:36px; flex:none;
+  border-radius:9px;
+  background:linear-gradient(150deg,var(--green-mid),var(--ink));
+  display:grid; place-items:center;
+  color:#F0D9A4; font-weight:800; font-size:.82rem; letter-spacing:.02em;
+}
+.brand-txt{ display:flex; flex-direction:column; line-height:1.15; }
+.brand-name{ font-weight:800; color:var(--ink); font-size:1rem; letter-spacing:-.02em; }
+.brand-sub{ font-size:.7rem; color:var(--muted); letter-spacing:.05em; text-transform:uppercase; }
+
+.nav{ display:flex; align-items:center; gap:2px; }
+.nav a{
+  color:var(--text); text-decoration:none;
+  font-size:.93rem; font-weight:550;
+  padding:9px 11px; border-radius:8px;
+  white-space:nowrap;
+}
+.nav a:hover{ background:var(--green-soft); color:var(--green); }
+.nav .btn{ margin-left:var(--s3); }
+
+.navtoggle{ display:none; }
+
+@media (max-width:1240px) and (min-width:1001px){
+  .brand-name{ font-size:.92rem; max-width:16ch; }
+  .brand-sub{ display:none; }
+  .nav a{ padding:9px 8px; font-size:.88rem; }
+}
+
+@media (max-width:1000px){
+  .nav{
+    display:none;
+    position:absolute; left:0; right:0; top:var(--header-h);
+    flex-direction:column; align-items:stretch; gap:2px;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    padding:var(--s3) 24px var(--s5);
+    box-shadow:var(--shadow-md);
+  }
+  .nav.open{ display:flex; }
+  .nav a{ padding:12px 10px; font-size:1rem; border-bottom:1px solid var(--line); border-radius:0; }
+  .nav .btn{ margin:var(--s3) 0 0; justify-content:center; border-bottom:0; }
+  .navtoggle{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--paper); border:1.5px solid var(--line-strong);
+    border-radius:999px; padding:8px 14px;
+    font:inherit; font-size:.88rem; font-weight:650; color:var(--ink);
+    cursor:pointer;
+  }
+  .navtoggle .bars{ display:grid; gap:3px; }
+  .navtoggle .bars i{ display:block; width:15px; height:2px; background:var(--ink); border-radius:2px; }
+}
+
+/* ---------- concept ribbon ---------- */
+.ribbon{
+  background:var(--ink); color:#D9E6DF;
+  font-size:.83rem; letter-spacing:.01em;
+  padding:9px 0;
+}
+.ribbon .wrap{ display:flex; flex-wrap:wrap; gap:6px 18px; align-items:center; }
+.ribbon strong{ color:#F0D9A4; font-weight:700; }
+.ribbon .dot{ color:#6C8579; }
+
+/* ---------- explainer layer ---------- */
+.exp-toggle{
+  position:fixed; z-index:60;
+  top:calc(var(--header-h) + 14px); right:18px;
+  display:inline-flex; align-items:center; gap:9px;
+  background:var(--amber-bg);
+  color:var(--amber-text);
+  border:1.5px solid var(--amber-line);
+  border-radius:999px;
+  padding:10px 16px;
+  font:inherit; font-size:.85rem; font-weight:700;
+  cursor:pointer;
+  box-shadow:var(--shadow-md);
+}
+.exp-toggle .lamp{
+  width:9px; height:9px; border-radius:50%;
+  background:var(--amber-pin);
+  box-shadow:0 0 0 3px rgba(169,116,26,.18);
+}
+.explainers-off .exp-toggle .lamp{ background:#B9B2A2; box-shadow:0 0 0 3px rgba(0,0,0,.06); }
+.exp-count{
+  font-weight:600; font-size:.78rem; opacity:.75;
+}
+@media (max-width:640px){
+  .exp-toggle{ top:auto; bottom:16px; right:12px; padding:11px 15px; font-size:.82rem; }
+}
+
+.note{
+  position:relative;
+  background:var(--amber-bg);
+  border:1.5px solid var(--amber-line);
+  border-left-width:5px;
+  border-radius:var(--r-md);
+  color:var(--amber-text);
+  padding:16px 18px 16px 44px;
+  margin:var(--s5) 0;
+  max-width:66ch;
+  font-size:.93rem;
+  line-height:1.55;
+  box-shadow:0 1px 0 rgba(169,116,26,.12), var(--shadow-sm);
+}
+.note::after{
+  content:"WHY THIS EXISTS";
+  position:absolute; top:-9px; left:40px;
+  background:var(--amber-pin); color:#FFF7E6;
+  font-size:.58rem; font-weight:800; letter-spacing:.13em;
+  padding:2px 8px; border-radius:99px;
+}
+.note-pin{
+  position:absolute; top:14px; left:12px;
+  width:24px; height:24px; border-radius:50%;
+  background:var(--amber-pin); color:#FFF8E6;
+  display:grid; place-items:center;
+  font-size:.78rem; font-weight:800;
+  font-variant-numeric:tabular-nums;
+}
+.note p{ margin:0; }
+.note--wide{ max-width:none; }
+
+.explainers-off .note{ display:none; }
+.annotated{ position:relative; }
+.explainers-off .annotated::before{ display:none; }
+
+/* ---------- photo placeholders ---------- */
+.ph{
+  position:relative;
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  background:linear-gradient(148deg,#1E5B47 0%,#154536 46%,#0E2A21 100%);
+  min-height:200px;
+  display:flex; align-items:flex-end;
+  isolation:isolate;
+}
+.ph::before{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:
+    repeating-linear-gradient(45deg, rgba(255,255,255,.055) 0 1px, transparent 1px 13px),
+    repeating-linear-gradient(-45deg, rgba(255,255,255,.05) 0 1px, transparent 1px 13px),
+    radial-gradient(circle at 78% 18%, rgba(201,144,38,.34), transparent 58%);
+}
+.ph::after{
+  content:""; position:absolute; z-index:-1;
+  width:210px; height:210px; right:-52px; bottom:-72px;
+  border-radius:50%;
+  border:1px solid rgba(240,217,164,.28);
+  box-shadow:0 0 0 26px rgba(240,217,164,.06);
+}
+.ph-label{
+  position:relative;
+  margin:14px;
+  background:rgba(251,249,244,.94);
+  color:var(--ink);
+  border-radius:99px;
+  padding:7px 14px;
+  font-family:var(--mono);
+  font-size:.7rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  line-height:1.35;
+  max-width:calc(100% - 28px);
+}
+.ph--gold{ background:linear-gradient(150deg,#C99026 0%,#A9741A 55%,#6E4A0F 100%); }
+.ph--pale{ background:linear-gradient(150deg,#DDE9E2 0%,#C9DCD2 60%,#A9C2B6 100%); }
+.ph--pale .ph-label{ background:rgba(14,42,33,.86); color:#F3EEDF; }
+.ph--tall{ min-height:340px; }
+.ph--wide{ min-height:clamp(240px, 34vw, 430px); }
+.ph--sq{ aspect-ratio:1/1; min-height:0; }
+.ph--strip{ min-height:132px; border-radius:var(--r-md); }
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(1100px 460px at 82% -8%, rgba(201,144,38,.12), transparent 62%),
+    var(--ground);
+  padding:clamp(44px, 6vw, 84px) 0 clamp(40px, 5vw, 72px);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);
+  gap:clamp(28px, 4vw, 60px);
+  align-items:center;
+}
+.hero-def{
+  font-size:clamp(1.08rem, 1.7vw, 1.32rem);
+  line-height:1.5;
+  color:var(--text);
+  max-width:52ch;
+  margin-top:var(--s5);
+}
+.hero-def b{ color:var(--ink); font-weight:700; }
+.hero-cta{ display:flex; flex-wrap:wrap; gap:var(--s3); margin-top:var(--s6); }
+.hero-meta{
+  display:flex; flex-wrap:wrap; gap:8px 22px;
+  margin-top:var(--s6); padding-top:var(--s5);
+  border-top:1px solid var(--line);
+  font-size:.86rem; color:var(--muted);
+}
+@media (max-width:900px){
+  .hero-grid{ grid-template-columns:1fr; }
+}
+
+/* ---------- numbers ---------- */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:1px;
+  background:rgba(255,255,255,.14);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+}
+.stat{ background:var(--green); padding:clamp(22px,3vw,34px) clamp(18px,2.4vw,28px); }
+.stat-n{
+  display:block;
+  font-size:clamp(2.15rem, 4.4vw, 3.25rem);
+  font-weight:800;
+  letter-spacing:-.04em;
+  line-height:1;
+  color:#FFFFFF;
+  font-variant-numeric:tabular-nums;
+  font-feature-settings:"tnum" 1;
+}
+.stat-n .unit{ font-size:.44em; font-weight:700; letter-spacing:-.01em; margin-left:2px; }
+.stat-l{ display:block; margin-top:12px; font-size:.94rem; color:#BFD5CA; line-height:1.4; }
+.stat-l b{ color:#F0D9A4; font-weight:650; }
+@media (max-width:860px){ .stats{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:440px){ .stats{ grid-template-columns:1fr; } }
+
+/* ---------- generic cards ---------- */
+.grid{ display:grid; gap:var(--s5); }
+.g-5{ grid-template-columns:repeat(5,minmax(0,1fr)); }
+.g-4{ grid-template-columns:repeat(4,minmax(0,1fr)); }
+.g-3{ grid-template-columns:repeat(3,minmax(0,1fr)); }
+.g-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+@media (max-width:1050px){ .g-5{ grid-template-columns:repeat(3,minmax(0,1fr)); } .g-4{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:820px){ .g-3{ grid-template-columns:repeat(2,minmax(0,1fr)); } .g-2{ grid-template-columns:1fr; } }
+@media (max-width:620px){ .g-5,.g-4,.g-3{ grid-template-columns:1fr; } }
+
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  display:flex; flex-direction:column;
+  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); border-color:var(--line-strong); }
+.card-body{ padding:var(--s5); display:flex; flex-direction:column; gap:var(--s2); flex:1; }
+.card-body p{ font-size:.94rem; color:var(--muted); }
+.card-more{
+  margin-top:auto; padding-top:var(--s3);
+  font-size:.87rem; font-weight:650; color:var(--green);
+  text-decoration:none;
+}
+.card-more:hover{ text-decoration:underline; }
+.card .ph{ border-radius:0; }
+
+.tag{
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--gold-soft); color:var(--gold);
+  border:1px solid #EAD7AE;
+  border-radius:99px;
+  padding:4px 11px;
+  font-size:.71rem; font-weight:750; letter-spacing:.06em; text-transform:uppercase;
+  width:fit-content;
+}
+.tag--green{ background:var(--green-soft); color:var(--green); border-color:var(--green-line); }
+.tag--grey{ background:#F1EFE8; color:var(--muted); border-color:var(--line); }
+
+/* ---------- centres ---------- */
+.centres{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s4); }
+@media (max-width:900px){ .centres{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:560px){ .centres{ grid-template-columns:1fr; } }
+.centre-entity{ display:inline-block; margin:2px 0 8px; padding:.18em .6em; border:1px solid var(--line); border-radius:999px; font-size:.68rem; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft); background:var(--paper); }
+.centre-subs{ margin:10px 0 0; padding:10px 0 0; border-top:1px dashed var(--line); list-style:none; }
+.centre-subs li{ font-size:.86rem; color:var(--ink-soft); padding:2px 0 2px 1.1em; position:relative; }
+.centre-subs li::before{ content:""; position:absolute; left:0; top:.72em; width:.55em; height:1px; background:var(--gold); }
+.centre-parent{ grid-column:1 / -1; display:flex; align-items:center; gap:var(--s4); background:var(--green-deep); color:#f4f6f2; border-radius:10px; padding:var(--s4) var(--s5); }
+.centre-parent h3{ color:#fff; margin:0 0 2px; }
+.centre-parent p{ color:#cfd9cd; margin:0; font-size:.92rem; }
+@media (max-width:560px){ .centre-parent{ flex-direction:column; align-items:flex-start; } }
+.centre{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--r-md);
+  padding:var(--s5);
+  display:flex; gap:var(--s4); align-items:flex-start;
+}
+.centre-mark{
+  width:44px; height:44px; flex:none; border-radius:11px;
+  background:linear-gradient(150deg,var(--green-mid),var(--ink));
+  color:#F0D9A4; display:grid; place-items:center;
+  font-weight:800; font-size:.8rem; letter-spacing:.01em;
+}
+.centre h3{ font-size:1rem; margin-bottom:4px; }
+.centre p{ font-size:.89rem; color:var(--muted); margin:0; }
+.centre .out{ font-size:.8rem; color:var(--green); font-weight:650; display:inline-block; margin-top:8px; text-decoration:none; }
+
+/* ---------- events ---------- */
+.evt{ display:flex; flex-direction:column; }
+.evt-date{
+  display:flex; align-items:baseline; gap:8px;
+  font-variant-numeric:tabular-nums;
+  color:var(--ink);
+  font-weight:800; letter-spacing:-.02em;
+  font-size:1.28rem;
+  margin-bottom:var(--s2);
+}
+.evt-date .mo{ font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); }
+.evt-where{ font-size:.85rem; color:var(--muted); margin-top:var(--s2); }
+
+/* ---------- trust band ---------- */
+.trust-grid{
+  display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
+  gap:clamp(28px,4vw,56px); align-items:center;
+}
+@media (max-width:900px){ .trust-grid{ grid-template-columns:1fr; } }
+.acnc{
+  display:flex; align-items:center; gap:var(--s4);
+  background:var(--paper); border:1px solid var(--green-line);
+  border-radius:var(--r-md); padding:var(--s4) var(--s5);
+  margin-bottom:var(--s4);
+}
+.acnc .tick{
+  width:42px; height:42px; flex:none; border-radius:50%;
+  background:var(--green); color:#F0D9A4;
+  display:grid; place-items:center; font-size:1.1rem; font-weight:800;
+}
+.acnc b{ display:block; color:var(--ink); font-size:.98rem; }
+.acnc span{ font-size:.85rem; color:var(--muted); }
+.abn{
+  font-family:var(--mono); font-size:.9rem; letter-spacing:.02em;
+  font-variant-numeric:tabular-nums;
+  background:var(--paper); border:1px dashed var(--line-strong);
+  border-radius:var(--r-sm); padding:10px 14px; display:inline-block;
+}
+.funders{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s3); }
+@media (max-width:620px){ .funders{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+.funder{
+  background:var(--paper); border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  min-height:78px; padding:var(--s3);
+  display:flex; flex-direction:column; justify-content:center; gap:4px;
+}
+.funder .fn{ font-size:.86rem; font-weight:700; color:var(--ink); line-height:1.25; }
+.funder .fl{ font-family:var(--mono); font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+
+/* ---------- get involved + newsletter ---------- */
+.signup{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--r-lg);
+  padding:clamp(24px,3.4vw,40px);
+  display:grid; grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+  gap:clamp(22px,3vw,44px); align-items:center;
+}
+@media (max-width:860px){ .signup{ grid-template-columns:1fr; } }
+.field{ display:flex; gap:var(--s2); flex-wrap:wrap; }
+.field input{
+  flex:1 1 220px;
+  font:inherit; font-size:.95rem;
+  padding:13px 15px;
+  border:1.5px solid var(--line-strong);
+  border-radius:10px;
+  background:var(--ground);
+  color:var(--text);
+}
+.field input::placeholder{ color:#8C9790; }
+.fineprint{ font-size:.78rem; color:var(--muted); margin-top:var(--s3); }
+
+/* ---------- browser window vignettes ---------- */
+.window{
+  background:var(--paper);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-lg);
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  margin-bottom:var(--s7);
+}
+.window-chrome{
+  display:flex; align-items:center; gap:var(--s3);
+  background:#F0EDE4;
+  border-bottom:1px solid var(--line-strong);
+  padding:10px 14px;
+}
+.dots{ display:flex; gap:6px; flex:none; }
+.dots i{ width:10px; height:10px; border-radius:50%; background:#CFC8B8; display:block; }
+.urlbar{
+  flex:1; min-width:0;
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:99px;
+  padding:5px 13px;
+  font-family:var(--mono); font-size:.74rem; color:var(--muted);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.urlbar b{ color:var(--ink); font-weight:700; }
+.window-tag{
+  flex:none; font-size:.68rem; font-weight:750; letter-spacing:.11em; text-transform:uppercase;
+  color:var(--gold);
+}
+.window-body{ padding:clamp(22px,3.2vw,40px); }
+.window-crumb{
+  font-size:.78rem; color:var(--muted); margin-bottom:var(--s3);
+  font-family:var(--mono); letter-spacing:.02em;
+}
+
+/* quick exit */
+.quickexit{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--s4);
+  flex-wrap:wrap;
+  background:#FBECEC; border:1.5px solid #E7BFBF;
+  border-radius:var(--r-md);
+  padding:12px 16px; margin-bottom:var(--s5);
+}
+.quickexit p{ margin:0; font-size:.86rem; color:#6B2E2E; }
+.qe-btn{
+  background:#8E2B2B; color:#FFF; border:0; border-radius:99px;
+  font:inherit; font-size:.82rem; font-weight:750;
+  padding:8px 15px; cursor:pointer;
+}
+
+/* contact rail */
+.rail{
+  background:var(--green-soft);
+  border:1px solid var(--green-line);
+  border-radius:var(--r-md);
+  padding:var(--s5);
+}
+.rail h4{ font-size:.98rem; margin-bottom:var(--s2); }
+.rail .big{
+  font-size:1.32rem; font-weight:800; color:var(--ink);
+  letter-spacing:-.02em; font-variant-numeric:tabular-nums;
+  display:block; margin:var(--s2) 0;
+}
+.rail p{ font-size:.87rem; color:var(--muted); }
+
+.list-plain{ margin:0; padding:0; list-style:none; }
+.list-plain li{
+  padding:11px 0; border-bottom:1px solid var(--line);
+  font-size:.93rem; display:flex; gap:var(--s3); align-items:baseline;
+}
+.list-plain li:last-child{ border-bottom:0; }
+.list-plain .k{ color:var(--gold); font-weight:800; flex:none; }
+
+/* impact figures */
+.figs{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:var(--s4); margin-bottom:var(--s5); }
+@media (max-width:760px){ .figs{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:440px){ .figs{ grid-template-columns:1fr; } }
+.fig{
+  background:var(--ground);
+  border:1px solid var(--line);
+  border-left:4px solid var(--gold-bright);
+  border-radius:var(--r-sm);
+  padding:var(--s4) var(--s5);
+}
+.fig-n{
+  display:block; font-size:clamp(1.6rem,3vw,2.1rem); font-weight:800;
+  color:var(--ink); letter-spacing:-.035em; line-height:1.05;
+  font-variant-numeric:tabular-nums; font-feature-settings:"tnum" 1;
+}
+.fig-l{ display:block; font-size:.85rem; color:var(--muted); margin-top:6px; line-height:1.4; }
+
+.tablewrap{ overflow-x:auto; border:1px solid var(--line); border-radius:var(--r-md); background:var(--paper); }
+table{ border-collapse:collapse; width:100%; min-width:560px; font-size:.9rem; }
+th,td{ text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); }
+th{ background:var(--green-soft); color:var(--ink); font-weight:700; font-size:.8rem; letter-spacing:.05em; text-transform:uppercase; }
+td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+tr:last-child td{ border-bottom:0; }
+
+/* donate selector */
+.fundpick{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.05fr); gap:clamp(22px,3vw,40px); }
+@media (max-width:860px){ .fundpick{ grid-template-columns:1fr; } }
+.fundlist{ display:flex; flex-direction:column; gap:var(--s2); }
+.fundbtn{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
+  width:100%; text-align:left;
+  font:inherit; font-size:.95rem; font-weight:600;
+  background:var(--paper);
+  border:1.5px solid var(--line-strong);
+  border-radius:var(--r-md);
+  padding:13px 16px;
+  color:var(--text);
+  cursor:pointer;
+  transition:border-color .15s ease, background-color .15s ease;
+}
+.fundbtn:hover{ border-color:var(--green-mid); }
+.fundbtn[aria-pressed="true"]{
+  border-color:var(--green); background:var(--green-soft); color:var(--ink);
+  box-shadow:inset 3px 0 0 var(--green);
+}
+.pill{
+  font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase;
+  padding:3px 9px; border-radius:99px; flex:none;
+}
+.pill--yes{ background:#DDEEE4; color:#14603E; border:1px solid #B6D9C6; }
+.pill--no{ background:#F1EFE8; color:#6B6353; border:1px solid var(--line-strong); }
+
+.receipt{
+  background:var(--ground);
+  border:1px solid var(--line-strong);
+  border-radius:var(--r-md);
+  padding:var(--s5);
+}
+.receipt-head{
+  display:flex; align-items:center; justify-content:space-between; gap:var(--s3);
+  border-bottom:1px dashed var(--line-strong);
+  padding-bottom:var(--s3); margin-bottom:var(--s4);
+}
+.receipt-head b{ font-size:.98rem; color:var(--ink); }
+.receipt-line{
+  font-family:var(--mono); font-size:.82rem; line-height:1.65;
+  color:var(--text); white-space:pre-wrap;
+  font-variant-numeric:tabular-nums;
+}
+.receipt-flag{
+  margin-top:var(--s4); padding:11px 14px; border-radius:var(--r-sm);
+  font-size:.85rem; font-weight:600;
+}
+.flag-yes{ background:#DDEEE4; color:#14603E; border:1px solid #B6D9C6; }
+.flag-no{ background:var(--gold-soft); color:#6B4A0C; border:1px solid #EAD7AE; }
+
+/* footer */
+.footer{ background:var(--ink); color:#BFD1C8; padding:clamp(46px,5vw,74px) 0 var(--s6); }
+.footer h4{ color:#FFF; font-size:.82rem; letter-spacing:.13em; text-transform:uppercase; margin-bottom:var(--s4); }
+.footer a{ color:#DCE7E1; text-decoration:none; }
+.footer a:hover{ text-decoration:underline; }
+.foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:var(--s6); }
+@media (max-width:900px){ .foot-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:560px){ .foot-grid{ grid-template-columns:1fr; } }
+.foot-list{ list-style:none; margin:0; padding:0; font-size:.92rem; display:grid; gap:9px; }
+.addr{ font-style:normal; font-size:.95rem; line-height:1.7; }
+.addr b{ color:#FFF; }
+.socials{ display:flex; gap:var(--s2); flex-wrap:wrap; margin-top:var(--s4); }
+.soc{
+  border:1px solid rgba(255,255,255,.22); border-radius:99px;
+  padding:6px 13px; font-size:.8rem; color:#DCE7E1; text-decoration:none;
+}
+.footrule{ border-top:1px solid rgba(255,255,255,.14); margin-top:var(--s7); padding-top:var(--s5); font-size:.82rem; color:#8FA79B; display:flex; flex-wrap:wrap; gap:8px 20px; }
+
+/* toast */
+.toast{
+  position:fixed; left:50%; bottom:24px; transform:translate(-50%,14px);
+  background:var(--ink); color:#F3EEDF;
+  border-radius:99px; padding:11px 20px;
+  font-size:.87rem; font-weight:600;
+  box-shadow:var(--shadow-md);
+  opacity:0; pointer-events:none;
+  transition:opacity .2s ease, transform .2s ease;
+  z-index:70; max-width:calc(100vw - 32px); text-align:center;
+}
+.toast.show{ opacity:1; transform:translate(-50%,0); }
+@media (max-width:640px){ .toast{ bottom:78px; } }
+
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion:reduce){
+  html{ scroll-behavior:auto; }
+  *,*::before,*::after{ animation-duration:.001ms !important; transition-duration:.001ms !important; }
+  .card:hover,.btn:hover{ transform:none; }
+}
+</style>
+
+<div class="ribbon">
+  <div class="wrap">
+    <span><strong>Concept mockup</strong> for gtcf.org.au</span>
+    <span class="dot">|</span>
+    <span>Prepared 15 August 2026 from the Gallipoli Digital Rebuild plan</span>
+    <span class="dot">|</span>
+    <span>15 amber notes explain each decision. Switch them off to read it as a visitor would.</span>
+  </div>
+</div>
+
+<header class="siteheader">
+  <div class="wrap headbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">GTCF</span>
+      <span class="brand-txt">
+        <span class="brand-name">Gallipoli Turkish Cultural Foundation</span>
+        <span class="brand-sub">Auburn, Western Sydney</span>
+      </span>
+    </a>
+
+    <button class="navtoggle" id="navtoggle" aria-expanded="false" aria-controls="nav">
+      <span class="bars" aria-hidden="true"><i></i><i></i><i></i></span> Menu
+    </button>
+
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#centres">Our Centres</a>
+      <a href="#events">Events &amp; News</a>
+      <a href="#impact">Impact</a>
+      <a href="#involved">Get Involved</a>
+      <a class="btn btn--gold btn--sm" href="#donate">Donate</a>
+    </nav>
+  </div>
+</header>
+
+<button class="exp-toggle" id="expToggle" aria-pressed="true">
+  <span class="lamp" aria-hidden="true"></span>
+  <span id="expLabel">Explainers: ON</span>
+  <span class="exp-count">15 notes</span>
+</button>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero annotated">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Registered charity since 1977</p>
+          <h1 class="h-display">Faith, care, education and community, from one place in Auburn.</h1>
+          <p class="hero-def">
+            The Gallipoli Turkish Cultural Foundation is a <b>Western Sydney charity running faith, care,
+            education and community services</b> from the home of the Auburn Gallipoli Mosque.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn--primary" href="#programs">Our programs <span class="arw" aria-hidden="true">&#8594;</span></a>
+            <a class="btn btn--ghost" href="#donate">Donate</a>
+          </div>
+          <div class="hero-meta">
+            <span>13-15 Gelibolu Parade, Auburn NSW 2144</span>
+            <span>(02) 9646 5972</span>
+            <span class="tnum">ABN 18 044 027 709</span>
+          </div>
+        </div>
+
+        <div class="ph ph--wide">
+          <span class="ph-label">PHOTO: the Auburn Gallipoli Mosque at dusk from Gelibolu Parade, minarets lit, taken on the commissioned photography day. Never stock.</span>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">1</span>
+        <p>The current homepage never says what GTCF is. One sentence and one real photograph do that job before a
+          funder scrolls. The plan budgets half a day with a photographer to replace every stock image on both sites.</p>
+      </aside>
+
+      <aside class="note"><span class="note-pin">2</span>
+        <p>The navigation above has eight items. The live site has two, Home and About, and five of its nine pages
+          cannot be reached by clicking at all. Donate is a button here because today no donate button exists anywhere.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= NUMBERS ================= -->
+  <section class="band band--tight" style="background:var(--ground);">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-n">10,000<span class="unit">+</span></span>
+          <span class="stat-l">mosque visitors a year, <b>95% of them non-Muslim</b></span>
+        </div>
+        <div class="stat">
+          <span class="stat-n">102</span>
+          <span class="stat-l">bed aged care home, <b>Gallipoli Home</b></span>
+        </div>
+        <div class="stat">
+          <span class="stat-n">44<span class="unit">+</span></span>
+          <span class="stat-l">funded programs delivered <b>since 2020</b></span>
+        </div>
+        <div class="stat">
+          <span class="stat-n">6,000</span>
+          <span class="stat-l">worshippers <b>every week</b></span>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">3</span>
+        <p>A 102-bed aged care home and 6,000 weekly worshippers appear nowhere on the current site, which shows a
+          mosque with a gym attached. Grant assessors decide whether an applicant is serious in about ten seconds.
+          The figures are set in tabular numerals so all four line up.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="band band--paper" id="about">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">About the Foundation</p>
+          <h2 class="h-section">One entity, many arms, and until now no page that says so.</h2>
+          <p class="lede">
+            The Foundation has served Auburn since 1977. GTCF Ltd is a single registered charity, ABN 18 044 027 709,
+            and "Auburn Gallipoli Mosque" is a registered business name of that same ABN. The mosque, the aged care home,
+            the schools, the fitness centre and the funeral fund all sit under it.
+          </p>
+          <ul class="list-plain" style="margin-top:var(--s5);">
+            <li><span class="k">01</span><span>Our history, from the 1977 founding to the mosque that opened as Australia's first purpose-built Ottoman-style mosque.</span></li>
+            <li><span class="k">02</span><span>The board, with names and photographs, and who is responsible for what.</span></li>
+            <li><span class="k">03</span><span>Structure: which entity delivers which service, and how the mosque and the Foundation relate.</span></li>
+            <li><span class="k">04</span><span>ABN, ACNC registration status and annual reports, downloadable.</span></li>
+          </ul>
+          <p style="margin-top:var(--s5);"><a class="btn btn--ghost btn--sm" href="#impact">Read the About page <span class="arw" aria-hidden="true">&#8594;</span></a></p>
+        </div>
+        <div class="grid g-2" style="gap:var(--s4);">
+          <div class="ph ph--sq"><span class="ph-label">PHOTO: board portrait, taken in the courtyard</span></div>
+          <div class="ph ph--sq ph--pale"><span class="ph-label">PHOTO: board portrait</span></div>
+          <div class="ph ph--sq ph--gold"><span class="ph-label">PHOTO: board portrait</span></div>
+          <div class="ph ph--sq"><span class="ph-label">ARCHIVE: 1977 foundation photograph from the community's own collection</span></div>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">4</span>
+        <p>Twenty of the twenty-three images on the current site have no alt text, and one of them reads
+          "black and brown leather padded tub sofa". Every image here is described in words, which serves screen
+          readers, Google and the editor who has to find the file again next year.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= PROGRAMS ================= -->
+  <section class="band" id="programs">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Programs</p>
+        <h2 class="h-section">Five doors into the work the Foundation actually does.</h2>
+        <p class="lede">One page per area: what it is, who it is for, how to join or refer someone, and the funder acknowledged.</p>
+      </div>
+
+      <div class="grid g-5">
+        <article class="card">
+          <div class="ph ph--strip"><span class="ph-label">PHOTO: women's group session, faces consented</span></div>
+          <div class="card-body">
+            <h3 class="h-card">Women &amp; Family</h3>
+            <p>Domestic and family violence support, women's groups and family wellbeing, delivered with referral pathways and phone-first contact.</p>
+            <a class="card-more" href="#vignettes">See the page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ph ph--strip ph--gold"><span class="ph-label">PHOTO: iYouth Centre evening program</span></div>
+          <div class="card-body">
+            <h3 class="h-card">Youth (iYouth)</h3>
+            <p>The iYouth Centre: mentoring, leadership, sport and holiday programs for young people across Cumberland.</p>
+            <a class="card-more" href="#centres">See the page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ph ph--strip ph--pale"><span class="ph-label">PHOTO: seniors morning group, Gallipoli Home</span></div>
+          <div class="card-body">
+            <h3 class="h-card">Seniors</h3>
+            <p>Social support, in-language activities and connection for older Turkish-speaking residents, alongside the 102-bed Gallipoli Home.</p>
+            <a class="card-more" href="#centres">See the page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ph ph--strip"><span class="ph-label">PHOTO: Turkish School classroom, Saturday morning</span></div>
+          <div class="card-body">
+            <h3 class="h-card">Education</h3>
+            <p>Turkish School, Quran School and the education programs that bring 10,000 visitors a year through the mosque.</p>
+            <a class="card-more" href="#centres">See the page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="ph ph--strip ph--gold"><span class="ph-label">PHOTO: settlement information session</span></div>
+          <div class="card-body">
+            <h3 class="h-card">Settlement &amp; Community</h3>
+            <p>Newly arrived families, information sessions, community events and the campaigns that reached 15,000 people during COVID.</p>
+            <a class="card-more" href="#impact">See the page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <aside class="note"><span class="note-pin">5</span>
+        <p>The audit found the site presents "a mosque with a gym attached". These five doors are the programs that
+          genuinely run, including the DFV and women's work that no page currently mentions. Each one names its funder,
+          which is good practice and also a grant acquittal requirement.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= CENTRES ================= -->
+  <section class="band band--paper" id="centres">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Our Centres</p>
+        <h2 class="h-section">The family of arms, legible in one place.</h2>
+        <p class="lede">Every arm the Foundation runs, with its legal home stated, so a funder, referrer or family can see the whole structure at a glance. Each gets a page of its own plus the outbound link.</p>
+      </div>
+
+      <div class="centres">
+        <div class="centre-parent">
+          <span class="centre-mark" aria-hidden="true">GTCF</span>
+          <div>
+            <h3>Gallipoli Turkish Cultural Foundation Ltd</h3>
+            <p>The parent charity, ABN 18 044 027 709, ACNC registered, serving Auburn since 1977. The mosque, iYouth, the schools and the fitness centre operate under this entity; the aged care home and the funeral fund are related entities under the same roof.</p>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">AGM</span>
+          <div>
+            <h3>Auburn Gallipoli Mosque</h3>
+            <span class="centre-entity">Business name of GTCF Ltd</span>
+            <p>The Foundation's home and Australia's landmark Ottoman-style mosque. Prayer times, visits, tours, nikah and Quran school.</p>
+            <a class="out" href="#events">gallipolimosque.org.au <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">GH</span>
+          <div>
+            <h3>Gallipoli Home</h3>
+            <span class="centre-entity">Gallipoli Health Services Ltd &#183; DGR</span>
+            <p>Culturally and linguistically matched aged care, operating since 2019 with a workforce of 171.</p>
+            <ul class="centre-subs">
+              <li>102-bed residential aged care home</li>
+              <li>In-Home Care packages</li>
+              <li>Commonwealth Home Support Programme (CHSP)</li>
+            </ul>
+            <a class="out" href="#centres">gallipolihome.org.au <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">GFF</span>
+          <div>
+            <h3>Gallipoli Funeral Fund</h3>
+            <span class="centre-entity">Gallipoli Funeral Fund Ltd &#183; AFSL 540427</span>
+            <p>Member-based funeral cover and the janazah pathway families need at short notice.</p>
+            <a class="out" href="#centres">Visit the centre page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">iY</span>
+          <div>
+            <h3>iYouth Centre</h3>
+            <span class="centre-entity">Part of GTCF Ltd</span>
+            <p>The dedicated youth space: 200 to 500 young people engaged weekly, ages 12 to 25, Thursday nights and Sunday support groups.</p>
+            <a class="out" href="#centres">Visit the centre page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">GF</span>
+          <div>
+            <h3>Gallipoli Fitness</h3>
+            <span class="centre-entity">Part of GTCF Ltd</span>
+            <p>The community gym on site: female-only sections, classes and childminding, open to members and program participants.</p>
+            <a class="out" href="#centres">gallipolifitness.com.au <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">TS</span>
+          <div>
+            <h3>Gallipoli Saturday Turkish School</h3>
+            <span class="centre-entity">Part of GTCF Ltd</span>
+            <p>K-6 language and cultural classes keeping Turkish alive for a third generation in Sydney.</p>
+            <a class="out" href="#centres">gallipoliturkishschool.com.au <span aria-hidden="true">&#8599;</span></a>
+          </div>
+        </div>
+        <div class="centre">
+          <span class="centre-mark" aria-hidden="true">GE</span>
+          <div>
+            <h3>Gallipoli Education</h3>
+            <span class="centre-entity">Part of GTCF Ltd</span>
+            <p>Adult and further Islamic education, including the one-year Diploma in Islamic Studies.</p>
+            <a class="out" href="#centres">Visit the centre page <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">6</span>
+        <p>Seven arms across three legal entities, and nowhere on the internet is that shape shown in one place.
+          Today the mosque site lists six bare links with no descriptions, iYouth points at a Facebook page, and a
+          referral partner or journalist has to piece the structure together themselves. The entity chips matter:
+          they tell a donor which arm is DGR and a family which entity holds the AFSL.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= EVENTS ================= -->
+  <section class="band" id="events">
+    <div class="wrap">
+      <div class="section-head" style="display:flex; align-items:flex-end; justify-content:space-between; gap:var(--s5); flex-wrap:wrap; max-width:none;">
+        <div style="max-width:60ch;">
+          <p class="eyebrow">Events &amp; News</p>
+          <h2 class="h-section">What's on</h2>
+        </div>
+        <span class="tag">Fed from Humanitix</span>
+      </div>
+
+      <div class="grid g-3">
+        <article class="card evt">
+          <div class="ph ph--strip ph--gold"><span class="ph-label">PHOTO: Harmony Festival crowd on the mosque grounds</span></div>
+          <div class="card-body">
+            <span class="evt-date tnum"><span class="mo">November 2026</span> 20-21</span>
+            <h3 class="h-card">Harmony Festival</h3>
+            <p>Two days of food, music and open doors on the mosque grounds. Free entry, ticketed so the Foundation knows who is coming.</p>
+            <span class="evt-where">Auburn Gallipoli Mosque, 13-15 Gelibolu Parade</span>
+            <a class="card-more" href="#events">Tickets on Humanitix <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card evt">
+          <div class="ph ph--strip"><span class="ph-label">PHOTO: visitors in the prayer hall on Open Day</span></div>
+          <div class="card-body">
+            <span class="evt-date tnum"><span class="mo">Annual</span> Open Day</span>
+            <h3 class="h-card">National Mosque Open Day</h3>
+            <p>The single biggest day for visitors who have never been inside a mosque. Runs to a permanent page, re-dressed each year rather than rebuilt.</p>
+            <span class="evt-where">Date announced each year, free and ticketed</span>
+            <a class="card-more" href="#events">Register interest <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+
+        <article class="card evt">
+          <div class="ph ph--strip ph--pale"><span class="ph-label">PHOTO: school group on a guided tour</span></div>
+          <div class="card-body">
+            <span class="evt-date tnum"><span class="mo">Monthly</span> Tours</span>
+            <h3 class="h-card">Public and school tours</h3>
+            <p>Public tour sessions released in monthly batches, and a separate school and group channel with its own lead times and invoice payment.</p>
+            <span class="evt-where">Free but ticketed, booked through Humanitix</span>
+            <a class="card-more" href="#events">See available sessions <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <aside class="note"><span class="note-pin">7</span>
+        <p>The current builder has no way to add an event at all, so events live on Facebook, Humanitix and
+          AllEvents.in and none of them link back. Humanitix feeds this strip, so the festival finally appears on
+          GTCF's own domain the moment tickets go live.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BAND ================= -->
+  <section class="band band--soft">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div>
+          <p class="eyebrow">Accountability</p>
+          <h2 class="h-section">Registered, audited, acquitted.</h2>
+          <div class="acnc">
+            <span class="tick" aria-hidden="true">&#10003;</span>
+            <div>
+              <b>ACNC Registered Charity</b>
+              <span>Gallipoli Turkish Cultural Foundation Ltd</span>
+            </div>
+          </div>
+          <p class="abn tnum">ABN 18 044 027 709</p>
+          <p style="margin-top:var(--s4); font-size:.92rem; color:var(--muted);">
+            Annual reports, financials and the board are published on the About page.
+            "Auburn Gallipoli Mosque" is a registered business name of this ABN.
+          </p>
+        </div>
+
+        <div>
+          <p class="eyebrow">Funders and partners</p>
+          <div class="funders">
+            <div class="funder"><span class="fn">Department of Home Affairs</span><span class="fl">Logo placeholder</span></div>
+            <div class="funder"><span class="fn">Multicultural NSW</span><span class="fl">Logo placeholder</span></div>
+            <div class="funder"><span class="fn">Women NSW</span><span class="fl">Logo placeholder</span></div>
+            <div class="funder"><span class="fn">NSW Department of Communities and Justice</span><span class="fl">Logo placeholder</span></div>
+            <div class="funder"><span class="fn">Cumberland City Council</span><span class="fl">Logo placeholder</span></div>
+            <div class="funder"><span class="fn">Annual reports</span><span class="fl">Download PDF</span></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">8</span>
+        <p>The current site publishes no ABN, no ACNC mark, no annual report and no board. Funders look for exactly
+          these marks before they read a word of an application, and the ABN has to appear on every receipt anyway.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= GET INVOLVED + NEWSLETTER ================= -->
+  <section class="band band--paper" id="involved">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Get Involved</p>
+        <h2 class="h-section">Three ways in, all of them with a real next step.</h2>
+      </div>
+
+      <div class="grid g-3" style="margin-bottom:var(--s6);">
+        <article class="card">
+          <div class="card-body">
+            <span class="tag tag--green">Volunteer</span>
+            <h3 class="h-card">Volunteer roles, listed</h3>
+            <p>Actual roles rather than an empty page: tours, festival, seniors visits, youth programs. The Working with Children Check and the induction are explained before you apply, not after.</p>
+            <a class="card-more" href="#involved">See open roles <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <span class="tag tag--green">Network</span>
+            <h3 class="h-card">Business Network</h3>
+            <p>The Foundation's business network: members, meetings and how local businesses back the programs.</p>
+            <a class="card-more" href="#involved">Register interest <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-body">
+            <span class="tag tag--green">Membership</span>
+            <h3 class="h-card">Membership</h3>
+            <p>Register interest now. From Phase 2 members manage their own details, giving and enrolments in an account area.</p>
+            <a class="card-more" href="#involved">Register interest <span aria-hidden="true">&#8594;</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="signup">
+        <div>
+          <p class="eyebrow">Newsletter</p>
+          <h3 class="h-section" style="font-size:clamp(1.35rem,2.4vw,1.8rem);">Get what's on, once a month.</h3>
+          <p style="color:var(--muted); font-size:.95rem;">Programs, events, the festival and the tours. No more than one email a month.</p>
+        </div>
+        <div>
+          <div class="field">
+            <label for="nl" style="position:absolute; left:-9999px;">Email address</label>
+            <input id="nl" type="email" placeholder="you@example.com" autocomplete="email">
+            <button class="btn btn--primary" data-demo type="button">Subscribe</button>
+          </div>
+          <p class="fineprint">Handled by HubSpot Free: 1,000 contacts and 2,000 emails a month at no cost. You can unsubscribe from any email.</p>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">9</span>
+        <p>Today there is no way to capture a single email address, and no analytics of any kind, so nobody knows
+          who visits or what they came for. This form and the CRM behind it cost nothing at the Foundation's volumes.</p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= INTERIOR VIGNETTES ================= -->
+  <section class="band" id="vignettes">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Interior pages</p>
+        <h2 class="h-section">Three pages that do the heaviest lifting.</h2>
+        <p class="lede">Shown compressed inside browser frames so the whole concept fits on one screen.</p>
+      </div>
+
+      <aside class="note note--wide"><span class="note-pin">10</span>
+        <p>These three are the pages a funder, a referral partner and a donor each need, and not one of them exists
+          today. Everything below is drawn from the rebuild plan, including the wording the law requires.</p>
+      </aside>
+
+      <!-- Vignette 1: Women & Family -->
+      <div class="window">
+        <div class="window-chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gtcf.org.au/<b>programs/women-and-family</b></span>
+          <span class="window-tag">Program page</span>
+        </div>
+        <div class="window-body">
+          <div class="quickexit">
+            <p><b>Quick exit</b> sends you straight to a weather page and clears this page from your history.</p>
+            <button class="qe-btn" data-demo type="button">Quick exit</button>
+          </div>
+
+          <p class="window-crumb">Programs / Women &amp; Family</p>
+          <div class="hero-grid" style="align-items:start;">
+            <div>
+              <h3 class="h-section" style="font-size:clamp(1.4rem,2.6vw,1.95rem);">Women &amp; Family</h3>
+              <p style="color:var(--muted);">
+                Support for women and families in Auburn and across Cumberland: domestic and family violence support,
+                women's groups, family wellbeing and referrals to specialist services. Turkish and English speaking staff.
+              </p>
+              <ul class="list-plain" style="margin-top:var(--s4);">
+                <li><span class="k">Who</span><span>Women and families in the Cumberland area. No referral needed to talk to us first.</span></li>
+                <li><span class="k">How</span><span>Phone first. We will not publish an intake form or a walk-in address for this program.</span></li>
+                <li><span class="k">Cost</span><span>Free.</span></li>
+                <li><span class="k">Funded by</span><span>Women NSW and the NSW Department of Communities and Justice.</span></li>
+              </ul>
+            </div>
+            <div>
+              <div class="rail">
+                <h4>Talk to someone</h4>
+                <span class="big tnum">(02) 9646 5972</span>
+                <p>Ask for the Women &amp; Family team. If it is not safe to talk, call 1800RESPECT on 1800 737 732, any hour.</p>
+                <p style="margin-top:var(--s3);"><b>In an emergency call 000.</b></p>
+              </div>
+              <div class="ph ph--strip" style="margin-top:var(--s4);">
+                <span class="ph-label">PHOTO: women's group room, no identifiable faces</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="note"><span class="note-pin">11</span>
+            <p>A discreet quick exit, a phone-first pathway and no intake detail that could put someone in danger.
+              The funder is named on the page, which grant acquittals require and which the current site cannot do
+              because the program is not mentioned anywhere.</p>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Vignette 2: Impact -->
+      <div class="window" id="impact">
+        <div class="window-chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gtcf.org.au/<b>impact</b></span>
+          <span class="window-tag">Impact page</span>
+        </div>
+        <div class="window-body">
+          <p class="window-crumb">About / Impact</p>
+          <h3 class="h-section" style="font-size:clamp(1.4rem,2.6vw,1.95rem);">What the funding bought.</h3>
+          <p style="color:var(--muted); max-width:64ch; margin-bottom:var(--s5);">
+            Outcomes, not activity. Every figure here is already in the Foundation's acquittals and reports. None of it
+            appears on the website today.
+          </p>
+
+          <div class="figs">
+            <div class="fig"><span class="fig-n tnum">$3.7M+</span><span class="fig-l">secured in grant funding since 2020</span></div>
+            <div class="fig"><span class="fig-n tnum">44+</span><span class="fig-l">funded programs delivered</span></div>
+            <div class="fig"><span class="fig-n tnum">10,000+</span><span class="fig-l">mosque visitors a year, 95% non-Muslim</span></div>
+            <div class="fig"><span class="fig-n tnum">211,000</span><span class="fig-l">impressions, Tackling Islamophobia campaign</span></div>
+            <div class="fig"><span class="fig-n tnum">15,000</span><span class="fig-l">people reached by the COVID information campaigns</span></div>
+            <div class="fig"><span class="fig-n tnum">4,000</span><span class="fig-l">attended the Harmony Festival</span></div>
+          </div>
+
+          <div class="tablewrap">
+            <table>
+              <caption style="text-align:left; padding:12px 16px; font-size:.8rem; color:var(--muted);">
+                Selected program outcomes, drawn from acquittal reporting
+              </caption>
+              <thead>
+                <tr><th scope="col">Program</th><th scope="col">Outcome</th><th scope="col">Figure</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Tackling Islamophobia</td><td>Participants through the program</td><td class="num tnum">230</td></tr>
+                <tr><td>Tackling Islamophobia</td><td>Campaign impressions</td><td class="num tnum">211,000</td></tr>
+                <tr><td>COVID information campaigns</td><td>Community members reached</td><td class="num tnum">15,000</td></tr>
+                <tr><td>Harmony Festival</td><td>Attendance</td><td class="num tnum">4,000</td></tr>
+                <tr><td>Mosque tours and visits</td><td>Visitors a year, 95% non-Muslim</td><td class="num tnum">10,000+</td></tr>
+                <tr><td>Gallipoli Home</td><td>Residential aged care beds</td><td class="num tnum">102</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top:var(--s5);"><a class="btn btn--ghost btn--sm" href="#impact" data-demo>Download the annual report (PDF)</a></p>
+
+          <aside class="note"><span class="note-pin">12</span>
+            <p>$3.7M+ across 44+ grants since 2020 is the strongest credential the Foundation has, and it is invisible
+              online. A page like this is what an assessor checks before scoring a new application, and what a journalist
+              quotes instead of guessing.</p>
+          </aside>
+        </div>
+      </div>
+
+      <!-- Vignette 3: Donate -->
+      <div class="window" id="donate">
+        <div class="window-chrome">
+          <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="urlbar">gtcf.org.au/<b>donate</b></span>
+          <span class="window-tag">Donate page</span>
+        </div>
+        <div class="window-body">
+          <p class="window-crumb">Support us / Donate</p>
+          <h3 class="h-section" style="font-size:clamp(1.4rem,2.6vw,1.95rem);">Choose the fund. The receipt follows the fund.</h3>
+          <p style="color:var(--muted); max-width:66ch; margin-bottom:var(--s5);">
+            Select a fund to see the receipt a donor would actually get. Only one of the six is tax deductible, and the
+            page says so before you give, not after.
+          </p>
+
+          <div class="fundpick">
+            <div class="fundlist" role="group" aria-label="Choose a donation fund">
+              <button class="fundbtn" type="button" data-fund="scholarship" aria-pressed="true">
+                <span>Gallipoli Mosque Scholarship Fund</span><span class="pill pill--yes">Deductible</span>
+              </button>
+              <button class="fundbtn" type="button" data-fund="zekat" aria-pressed="false">
+                <span>Zekat</span><span class="pill pill--no">Not deductible</span>
+              </button>
+              <button class="fundbtn" type="button" data-fund="fitrah" aria-pressed="false">
+                <span>Fitrah</span><span class="pill pill--no">Not deductible</span>
+              </button>
+              <button class="fundbtn" type="button" data-fund="kindness" aria-pressed="false">
+                <span>Kindness Box</span><span class="pill pill--no">Not deductible</span>
+              </button>
+              <button class="fundbtn" type="button" data-fund="general" aria-pressed="false">
+                <span>General and mosque expenses</span><span class="pill pill--no">Not deductible</span>
+              </button>
+              <button class="fundbtn" type="button" data-fund="renovation" aria-pressed="false">
+                <span>Renovation Appeal</span><span class="pill pill--no">Not deductible</span>
+              </button>
+            </div>
+
+            <div>
+              <div class="receipt">
+                <div class="receipt-head">
+                  <b id="rcptFund">Gallipoli Mosque Scholarship Fund</b>
+                  <span class="tag tag--grey">Receipt preview</span>
+                </div>
+                <div class="receipt-line" id="rcptText"></div>
+                <div class="receipt-flag flag-yes" id="rcptFlag"></div>
+              </div>
+
+              <div class="field" style="margin-top:var(--s4);">
+                <button class="btn btn--gold" data-demo type="button">Give once</button>
+                <button class="btn btn--ghost" data-demo type="button">Give monthly</button>
+              </div>
+              <p class="fineprint">
+                Processed through GiveNow: 1.76% all in, ATO-formatted receipting including consolidated end of year
+                receipts, donor data held on Australian servers. Bank transfer details are published below the panel.
+              </p>
+            </div>
+          </div>
+
+          <aside class="note"><span class="note-pin">13</span>
+            <p>GTCF's DGR endorsement covers one fund only, the Gallipoli Mosque Scholarship Fund, effective
+              5 August 2025. Writing "tax deductible" on a renovation or zekat gift would be a false representation,
+              so the receipt wording is built into the fund itself rather than left to whoever writes the page.</p>
+          </aside>
+
+          <aside class="note"><span class="note-pin">14</span>
+            <p>Today the mosque runs two competing donation pages with no fund receipting and no ABN, and sharing the
+              link on WhatsApp previews as JotForm's logo with the words "Please click the link to complete this form".</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUILD NOTE ================= -->
+  <section class="band band--green band--tight">
+    <div class="wrap">
+      <div class="trust-grid">
+        <div>
+          <p class="eyebrow">How it is built</p>
+          <h2 class="h-section">A$5 to A$12 a month, for both sites.</h2>
+        </div>
+        <div>
+          <ul class="list-plain" style="color:#C6D9D0;">
+            <li style="border-color:rgba(255,255,255,.16);"><span class="k" style="color:#F0D9A4;">Stack</span><span>Astro on Cloudflare, Sveltia CMS, Humanitix, HubSpot Free, GiveNow, Cal.com.</span></li>
+            <li style="border-color:rgba(255,255,255,.16);"><span class="k" style="color:#F0D9A4;">Build</span><span>Phase 1a, the GTCF site: about four to six days.</span></li>
+            <li style="border-color:rgba(255,255,255,.16);"><span class="k" style="color:#F0D9A4;">Later</span><span>The member portal bolts on at roughly A$47 a month without re-platforming anything.</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <aside class="note"><span class="note-pin">15</span>
+        <p>The same git push pipeline already runs two other sites, so there is no new hosting bill and no builder
+          subscription. Doing the member portal inside HubSpot instead would cost roughly A$1,400 a month plus a
+          mandatory onboarding fee.</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand" style="margin-bottom:var(--s4);">
+          <span class="brand-mark" aria-hidden="true">GTCF</span>
+          <span class="brand-txt">
+            <span class="brand-name" style="color:#FFF;">Gallipoli Turkish Cultural Foundation</span>
+            <span class="brand-sub" style="color:#8FA79B;">Registered charity, ABN 18 044 027 709</span>
+          </span>
+        </div>
+        <address class="addr">
+          <b>13-15 Gelibolu Parade</b><br>
+          Auburn NSW 2144<br>
+          <a href="#top">(02) 9646 5972</a><br>
+          <a href="#top">info@gtcf.org.au</a>
+        </address>
+        <div class="socials">
+          <a class="soc" href="#top">Facebook</a>
+          <a class="soc" href="#top">Instagram</a>
+          <a class="soc" href="#top">YouTube</a>
+        </div>
+      </div>
+
+      <div>
+        <h4>The Foundation</h4>
+        <ul class="foot-list">
+          <li><a href="#about">About and history</a></li>
+          <li><a href="#about">Board and structure</a></li>
+          <li><a href="#impact">Impact and annual reports</a></li>
+          <li><a href="#involved">Work with us</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Programs</h4>
+        <ul class="foot-list">
+          <li><a href="#programs">Women &amp; Family</a></li>
+          <li><a href="#programs">Youth (iYouth)</a></li>
+          <li><a href="#programs">Seniors</a></li>
+          <li><a href="#programs">Education</a></li>
+          <li><a href="#programs">Settlement &amp; Community</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Our Centres</h4>
+        <ul class="foot-list">
+          <li><a href="#centres">Auburn Gallipoli Mosque</a></li>
+          <li><a href="#centres">Gallipoli Home</a></li>
+          <li><a href="#centres">Gallipoli Funeral Fund</a></li>
+          <li><a href="#centres">iYouth Centre</a></li>
+          <li><a href="#centres">Gallipoli Fitness</a></li>
+          <li><a href="#centres">Turkish School</a></li>
+          <li><a href="#centres">Gallipoli Education</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footrule">
+      <span>Gallipoli Turkish Cultural Foundation Ltd</span>
+      <span class="tnum">ABN 18 044 027 709</span>
+      <span>ACNC registered charity</span>
+      <span><a href="#top">Privacy policy</a></span>
+      <span><a href="#top">Accessibility</a></span>
+      <span>Concept mockup, not a live site.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- explainer layer ---------- */
+  var body = document.body;
+  var expBtn = document.getElementById("expToggle");
+  var expLabel = document.getElementById("expLabel");
+
+  expBtn.addEventListener("click", function(){
+    var off = body.classList.toggle("explainers-off");
+    expBtn.setAttribute("aria-pressed", off ? "false" : "true");
+    expLabel.textContent = off ? "Explainers: OFF" : "Explainers: ON";
+  });
+
+  /* ---------- mobile nav ---------- */
+  var navBtn = document.getElementById("navtoggle");
+  var nav = document.getElementById("nav");
+  navBtn.addEventListener("click", function(){
+    var open = nav.classList.toggle("open");
+    navBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", function(e){
+    if (e.target.tagName === "A") {
+      nav.classList.remove("open");
+      navBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+
+  /* ---------- demo toast ---------- */
+  var toast = document.getElementById("toast");
+  var toastTimer = null;
+  function say(msg){
+    toast.textContent = msg;
+    toast.classList.add("show");
+    if (toastTimer) { clearTimeout(toastTimer); }
+    toastTimer = setTimeout(function(){ toast.classList.remove("show"); }, 2600);
+  }
+  document.addEventListener("click", function(e){
+    var el = e.target.closest ? e.target.closest("[data-demo]") : null;
+    if (!el) { return; }
+    e.preventDefault();
+    say("Demo only. Nothing submits in this mockup.");
+  });
+
+  /* ---------- donation fund selector ---------- */
+  var FUNDS = {
+    scholarship: {
+      name: "Gallipoli Mosque Scholarship Fund",
+      deductible: true,
+      receipt:
+        "TAX DEDUCTIBLE GIFT RECEIPT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    Gallipoli Mosque Scholarship Fund\n" +
+        "Amount:  $100.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "This gift was made to a fund endorsed as a deductible gift\n" +
+        "recipient (Item 1) from 5 August 2025. Keep this receipt for\n" +
+        "your tax return.",
+      flag: "Deductible. The receipt names the fund, the ABN and the endorsement."
+    },
+    zekat: {
+      name: "Zekat",
+      deductible: false,
+      receipt:
+        "ACKNOWLEDGEMENT OF PAYMENT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    Zekat\n" +
+        "Amount:  $100.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "Your zekat is held as a restricted fund and distributed to\n" +
+        "eligible recipients. Zekat is not tax deductible in Australia.",
+      flag: "Not deductible. Held and reported as a restricted fund in the accounts."
+    },
+    fitrah: {
+      name: "Fitrah",
+      deductible: false,
+      receipt:
+        "ACKNOWLEDGEMENT OF PAYMENT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    Fitrah\n" +
+        "Amount:  $25.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "Your fitrah will be distributed before Eid prayer.\n" +
+        "Fitrah is not tax deductible in Australia.",
+      flag: "Not deductible. Distributed before Eid prayer, as the obligation requires."
+    },
+    kindness: {
+      name: "Kindness Box",
+      deductible: false,
+      receipt:
+        "THANK YOU FOR YOUR GIFT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    Kindness Box\n" +
+        "Amount:  $50.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "Your gift supports families in hardship in our community.\n" +
+        "This gift is not tax deductible.",
+      flag: "Not deductible. Whether a necessitous circumstances fund could change this is a question for an accountant."
+    },
+    general: {
+      name: "General and mosque expenses",
+      deductible: false,
+      receipt:
+        "THANK YOU FOR YOUR GIFT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    General and mosque expenses\n" +
+        "Amount:  $100.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "Your gift keeps the mosque open, lit and staffed.\n" +
+        "This gift is not tax deductible.",
+      flag: "Not deductible. Advancing religion is a charitable purpose but not a DGR category."
+    },
+    renovation: {
+      name: "Renovation Appeal",
+      deductible: false,
+      receipt:
+        "THANK YOU FOR YOUR GIFT\n" +
+        "Gallipoli Turkish Cultural Foundation Ltd\n" +
+        "ABN 18 044 027 709\n\n" +
+        "Fund:    Renovation Appeal\n" +
+        "Amount:  $250.00\n" +
+        "Date:    15 August 2026\n\n" +
+        "Your gift goes to the renovation of the mosque building.\n" +
+        "This gift is not tax deductible.",
+      flag: "Not deductible. The only building fund DGR category is a school building fund, which this does not meet."
+    }
+  };
+
+  var rcptFund = document.getElementById("rcptFund");
+  var rcptText = document.getElementById("rcptText");
+  var rcptFlag = document.getElementById("rcptFlag");
+  var fundBtns = Array.prototype.slice.call(document.querySelectorAll(".fundbtn"));
+
+  function showFund(key){
+    var f = FUNDS[key];
+    if (!f) { return; }
+    rcptFund.textContent = f.name;
+    rcptText.textContent = f.receipt;
+    rcptFlag.textContent = f.flag;
+    rcptFlag.className = "receipt-flag " + (f.deductible ? "flag-yes" : "flag-no");
+    fundBtns.forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-fund") === key ? "true" : "false");
+    });
+  }
+
+  fundBtns.forEach(function(b){
+    b.addEventListener("click", function(){ showFund(b.getAttribute("data-fund")); });
+  });
+
+  showFund("scholarship");
+})();
+</script>
+
+</body>
+</html>
