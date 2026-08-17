@@ -233,8 +233,8 @@ p{margin:0 0 1em;}
   background:rgba(42,157,143,.24);border:1px solid rgba(159,216,208,.55);
   border-radius:999px;padding:.32em .85em;font-size:.82rem;font-weight:600;
 }
-.next-chip .pulse{width:.5em;height:.5em;border-radius:50%;background:#7fe3d6;box-shadow:0 0 0 0 rgba(127,227,214,.7);animation:pulse 2.4s infinite;}
-@keyframes pulse{70%{box-shadow:0 0 0 8px rgba(127,227,214,0);}100%{box-shadow:0 0 0 0 rgba(127,227,214,0);}}
+.next-chip .pulse{width:.5em;height:.5em;border-radius:50%;background:#7fe3d6;animation:pulse 2.4s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.72);}}
 .times-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px 2px;}
 .times{display:grid;grid-template-columns:repeat(6,minmax(112px,1fr));gap:1px;background:rgba(255,255,255,.16);border-radius:10px;overflow:hidden;min-width:672px;}
 .cell{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));padding:.7em .8em .75em;position:relative;}
@@ -311,7 +311,7 @@ section{scroll-margin-top:150px;}
 .photo-tag{
   position:relative;margin:12px;padding:.5em .8em;border-radius:8px;
   background:rgba(12,34,68,.78);color:#fff;font-size:.74rem;font-weight:600;
-  letter-spacing:.03em;line-height:1.35;backdrop-filter:blur(2px);
+  letter-spacing:.03em;line-height:1.35;
 }
 .ph-dusk{background:linear-gradient(150deg,#0c2244 0%,#1d4e8f 55%,#2a9d8f 130%);}
 .ph-tile{background:linear-gradient(140deg,#1d4e8f 0%,#2a9d8f 100%);}
@@ -1407,9 +1407,21 @@ section{scroll-margin-top:150px;}
   /* ---------- strip compresses once pinned ---------- */
   var strip = document.getElementById('strip');
   var stripTop = strip.offsetTop;
+  /* hysteresis: pin well past the strip, unpin only near the top, so the
+     height change cannot fight the scroll position and judder */
+  var scrollQueued = false;
   function onScroll(){
-    if(window.pageYOffset > stripTop + 8){ strip.classList.add('pinned'); }
-    else { strip.classList.remove('pinned'); }
+    if(scrollQueued){ return; }
+    scrollQueued = true;
+    requestAnimationFrame(function(){
+      scrollQueued = false;
+      var y = window.pageYOffset;
+      if(!strip.classList.contains('pinned')){
+        if(y > stripTop + 220){ strip.classList.add('pinned'); }
+      } else {
+        if(y < stripTop + 40){ strip.classList.remove('pinned'); }
+      }
+    });
   }
   window.addEventListener('scroll', onScroll, { passive:true });
   window.addEventListener('resize', function(){ stripTop = strip.offsetTop; });
